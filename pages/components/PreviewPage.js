@@ -33,7 +33,7 @@ console.log(state, 'dentro preview page', boolean)
         PAGA
         </button>
         
-      
+  
       <style jsx>
         {`
           section {

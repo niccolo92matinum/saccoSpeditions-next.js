@@ -47,7 +47,9 @@
       "react/display-name": 1,
       "react/prop-types": "off",
       "react/button-has-type":"off",
-      "react/label-has-associated-control":"off"
+      "react/label-has-associated-control":"off",
+      "react/no-unescaped-entities": "off",
+      "@next/next/no-page-custom-font": "off"
       
     }
   }
