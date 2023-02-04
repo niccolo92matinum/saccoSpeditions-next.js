@@ -1,0 +1,356 @@
+
+
+.nav{
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  overflow: hidden;
+  background-color: rgb(253, 253, 253);
+  height: 50px;
+  z-index: 2;
+}
+/* Links inside the navbar */
+.nav a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change background on mouse-over */
+.nav a:hover {
+  background: #ddd;
+  color: black;
+}
+/*_________________________________________*/
+.masterContainer{
+    
+  border-radius: 30px;
+  box-shadow: 0px -5px 10px 0px rgba(0, 0, 0, 0.5);
+  width:1200px;
+  height: 400px;
+  margin: auto;
+   margin-top:100px;
+   background-color: white;
+   opacity: 0.8;
+
+  
+}
+.container-img{
+  padding-top: 50px;
+  position: fixed;
+  top: 0; 
+  width: 100%;
+  z-index: -1;
+}
+
+
+
+.partDesc{
+ 
+display: inline-block;
+
+}
+
+.dest{
+margin-left: 40px;
+}
+
+
+.mainPartDesc{
+
+  width:1200px;
+  height: 80px;
+   margin:0 auto;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+  
+   
+}
+
+.mainPesoLarghezzaEcc{
+  width:1200px;
+  height: 200px;
+   margin:0 auto;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+}
+
+.singleDiv{
+  display: inline-block;
+}
+
+.peso{
+  width: 80px;
+  margin-left: 40px;
+}
+.larghezza{
+  width: 120px;
+  margin-left: 40px;
+
+}
+.lunghezza{
+  width:120px;
+  margin-left: 40px;
+}
+.altezza{
+  width: 120px;
+  margin-left: 40px;
+}
+
+.tipoPacco{
+  width: 200px;
+}
+
+.mainButton{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+
+}
+
+.preventivo{
+  margin:  0 auto;
+
+
+}
+
+.imgDesktop{
+  width: 100%;
+  opacity: 0.5;
+}
+
+
+/*css result component*/
+
+.header-master-master{
+  margin-top: 50px;
+  
+}
+
+.header-master{
+margin-top: 100px;
+  border-radius: 30px;
+  width: 700px;
+  margin: auto;
+  box-shadow: 0px -5px 10px 0px rgba(0, 0, 0, 0.5);
+  background-color: aliceblue;
+  
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+
+.children{
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  width: 170px;
+ 
+ 
+  
+}
+
+
+
+/*____________PARTENZA_______*/
+
+.container-partenza{
+  width: 60%;
+  padding-left: 5%;
+  padding-right: 2%;
+ 
+  
+}
+
+.child-container-partenza{
+ 
+  border-radius: 30px;
+  box-shadow: 0px -5px 10px 0px rgba(0, 0, 0, 0.5);
+  background-color: aliceblue;
+  padding-bottom: 30px;
+  
+ 
+  
+}
+.container-riepilogo{
+  
+  width: 40%;
+  padding-left: 5%;
+  margin-right: 50px;
+  
+
+}
+
+.child-container-riepilogo{
+  border-radius: 30px;
+  box-shadow: 0px -5px 10px 0px rgb(0 0 0 / 50%);
+  background-color: aliceblue;
+  padding-bottom: 30px;
+}
+.div-hr{
+ 
+  margin-left: 5%;
+  margin-right: 5%;
+}
+hr{
+  background-color: #13899b;
+  height: 5px;
+  
+  
+}
+.conteiner-compagnia{
+margin-left: 25px;
+margin-top: 20px;
+}
+
+.titolo-riepilogo{
+  padding-left: 5%;
+  padding-top: 30px;
+}
+
+.overview-container{
+  display: flex;
+  z-index: 2;
+  margin-top: 100px;
+}
+.master-children-partenza{
+display: flex;
+
+}
+.title-patenzaSpedizione{
+  padding-left: 5%;
+  padding-top: 30px;
+}
+.children-partenza{
+  padding-left: 5%;
+  width: 50%;
+  padding-right: 2.5%;
+  padding-top: 20px;
+}
+
+.p-data{
+ font-weight: bold;
+ 
+}
+.p-placeholder{
+  color:gray;
+  margin-bottom: 0%;
+  font: 1.2em "Fira Sans", sans-serif;
+  margin-bottom: 15px;
+  
+
+}
+
+.control-label{
+  font: 1.2em "Fira Sans", sans-serif;
+}
+
+
+.p-container{
+
+  display: flex;
+  margin-left: 25px;
+ 
+}
+
+.p-container2{
+
+  
+  margin-left: 25px;
+ 
+}
+
+
+.p-container-left{
+ width: 50%;
+ 
+}
+.p-container-right{
+  width: 50%;
+}
+.p-prezzo{
+font-weight: bold;
+margin-bottom: 0%;
+}
+
+.prezzo-totale-margin{
+  margin-top: 20px;
+}
+.container-button{
+  display: flex;
+  justify-content: center;
+}
+.button-riepilogo{
+  width: 70%;
+  border-radius: 25px;
+  background-color: #FC6E30;
+  border: none;
+  
+}
+
+.button-start:hover {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+  transform: translate3d(0, 2px, 0);
+}
+
+.button-start:focus {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+}
+
+.button-start{
+  align-self: center;
+  background-color: #3ED1E7;
+  background-image: none;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Neucha, sans-serif;
+  font-size: 1rem;
+  line-height: 23px;
+  outline: none;
+  padding: .75rem;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+
+.button-resultComponent{
+  border-radius: 25px;
+  background-color: #FC6E30;
+  width: 100px;
+  border: none;
+
+}
+
+
+
+
+
