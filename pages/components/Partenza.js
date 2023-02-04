@@ -23,13 +23,14 @@ export default function Partenza({ name, state, handle }) {
               <label className="control-label" htmlFor="cars">
                 Ritiro
               </label>
-              <select type="number" className="form-select" value={choise.tipo}>
+              <select type="number" className="form-select" value={choise.tipo} disabled={true}>
                 {renderAuthSelect()}
               </select>
             </div>
             <div className="children-partenza">
               <label htmlFor="start"> Data di ritiro</label>
               <input
+                disabled={true}
                 className="form-select"
                 type="date"
                 name="date"
@@ -64,7 +65,7 @@ export default function Partenza({ name, state, handle }) {
 
           <div className="master-children-partenza">
             <div className="children-partenza">
-              <label className="control-label">Cità</label>
+              <label className="control-label">Città</label>
               <input
                 placeholder=""
                 className="form-control"

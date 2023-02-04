@@ -18,10 +18,10 @@ export default function Spedizione({ name, state, handle }) {
           <h4 className="title-patenzaSpedizione">{name}</h4>
           <div className="master-children-partenza">
             <div className="children-partenza">
-              <label className="control-label" htmlFor="cars">
+              <label className="control-label" htmlFor="cars" >
                 Ritiro
               </label>
-              <select type="number" className="form-select" defaultValue="">
+              <select type="number" className="form-select" defaultValue="" disabled={true}>
                 {renderAuthSelect()}
               </select>
             </div>
@@ -31,7 +31,7 @@ export default function Spedizione({ name, state, handle }) {
             <div className="children-partenza">
               <label className="control-label">Nome</label>
               <input
-                placeholder="Nome"
+                placeholder=""
                 className="form-control"
                 defaultValue=""
                 onChange={(e) => handle(e, "nameDispatcher")}
@@ -40,7 +40,7 @@ export default function Spedizione({ name, state, handle }) {
             <div className="children-partenza">
               <label className="control-label">Cognome</label>
               <input
-                placeholder="Cognome"
+                placeholder=""
                 className="form-control"
                 defaultValue=""
                 onChange={(e) => handle(e, "surnameDispatcher")}
@@ -52,7 +52,7 @@ export default function Spedizione({ name, state, handle }) {
             <div className="children-partenza">
               <label className="control-label">Cità</label>
               <input
-                placeholder="Città"
+                placeholder=""
                 className="form-control"
                 defaultValue=""
                 onChange={(e) => handle(e, "cityDispatcher")}
@@ -61,7 +61,7 @@ export default function Spedizione({ name, state, handle }) {
             <div className="children-partenza">
               <label className="control-label">Via</label>
               <input
-                placeholder="Via"
+                placeholder=""
                 className="form-control"
                 defaultValue=""
                 onChange={(e) => handle(e, "streetDispatcher")}
@@ -73,7 +73,7 @@ export default function Spedizione({ name, state, handle }) {
             <div className="children-partenza">
               <label className="control-label">Telefono</label>
               <input
-                placeholder="Telefono"
+                placeholder=""
                 className="form-control"
                 defaultValue="telefono"
                 onChange={(e) => handle(e, "phoneDispatcher")}
@@ -86,7 +86,7 @@ export default function Spedizione({ name, state, handle }) {
                 className="form-control"
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
-                defaultValue="email"
+                defaultValue=""
                 onChange={(e) => handle(e, "emailDispatcher")}
               />
             </div>

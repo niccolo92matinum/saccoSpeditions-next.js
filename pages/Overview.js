@@ -10,7 +10,14 @@ import {useState} from 'react'
  function  Overview({state}) {
 
    const [data, setData] = useState({})
-console.log(data, 'data')
+console.log(data, 'datassss')
+
+const checkIfInputsAreFilled = new Set( Object.values(data).filter(x => x === '')).has('')
+
+const checkIfInputsAreeAllPresent = Object.values(data).length === 12
+
+let boolean = !checkIfInputsAreFilled && checkIfInputsAreeAllPresent
+
    const handleObjDispatch = (e,key) =>{
     setData({...data, ...{[key]:e.target.value} })
     }
@@ -21,10 +28,10 @@ console.log(data, 'data')
             <Nav></Nav>
            <div className='overview-container'>
               <Partenza name='Partenza' state={state} handle={handleObjDispatch}></Partenza>
-              <Riepilogo state={state} allInfo={data}></Riepilogo>
+              <Riepilogo state={state} allInfo={data} boolean={boolean}></Riepilogo>
        
            </div> 
-           <div className='overview-container'>
+           <div className='overview-container-spedizione'>
               <Spedizione name='Spedizione' state={state} handle={handleObjDispatch}></Spedizione>
               <div className="container-spedizione"></div>
            </div> 

@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import PreviewPage from "./PreviewPage";
 
-function Riepilogo({ state, allInfo, setDataToStore }) {
+function Riepilogo({ state, allInfo, setDataToStore,boolean }) {
   console.log(allInfo, "dentro Riepilogo", state);
 
   const pickUpDate = new Date();
@@ -32,12 +32,13 @@ const fetchData = async() =>{
 
   const sendToBackAllData = () => {
     //inserisco tutti i dati nello store
-    const x = setDataToStore(allInfo);
-    // faccio una POST
-    sendAllParameter({ ...state, ...{ partenzaSpedizioneReducer: x.payload } });
+    
+      const x = setDataToStore(allInfo);
+      // faccio una POST
+      sendAllParameter({ ...state, ...{ partenzaSpedizioneReducer: x.payload } });
+    
+    
 
-    //faccio una GET per calcolarmi il prezzo nel beck
-    //fetchData()
   };
 
   return (
@@ -94,7 +95,7 @@ const fetchData = async() =>{
           </div>
         </div>
         <div className="container-button">
-        <PreviewPage prova={sendToBackAllData}></PreviewPage>
+        <PreviewPage prova={sendToBackAllData} boolean={boolean}></PreviewPage>
         
         </div>
        

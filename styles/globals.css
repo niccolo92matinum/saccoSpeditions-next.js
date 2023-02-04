@@ -226,6 +226,11 @@ margin-top: 20px;
   z-index: 2;
   margin-top: 100px;
 }
+.overview-container-spedizione{
+  display: flex;
+  z-index: 2;
+  
+}
 .master-children-partenza{
 display: flex;
 

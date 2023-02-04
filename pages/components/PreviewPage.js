@@ -8,9 +8,9 @@ import {connect} from 'react-redux'
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
 );
-function PreviewPage({prova, state}) {
+function PreviewPage({prova, state,boolean}) {
 
-console.log(state, 'dentro preview page')
+console.log(state, 'dentro preview page', boolean)
 
 
   React.useEffect(() => {
@@ -27,10 +27,11 @@ console.log(state, 'dentro preview page')
 
   return (
     <form action="/api/checkout_sessions" method="POST">
-     
-        <button type="submit" role="link" onClick={()=>prova()}>
-          PAGA
+      
+        <button type="submit" role="link" onClick={()=>prova()} disabled={!boolean}>
+        PAGA
         </button>
+        
       
       <style jsx>
         {`

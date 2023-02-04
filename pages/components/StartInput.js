@@ -6,13 +6,13 @@ export function StartInput({ setDataToStore, state }) {
   const [data, setData] = useState({
     partenza: "",
     destinazione: "",
-    tipo: "",
-    peso: "",
-    larghezza: "",
-    altezza: "",
-    lunghezza: "",
+    tipo: 1,
+    peso: 0,
+    larghezza: 0,
+    altezza: 0,
+    lunghezza: 0,
   });
-
+console.log(data, 'dataff')
   const handleTipo = (e) => {
     setData({ ...data, ...{ tipo: Number(e.target.value) } });
   };
@@ -53,8 +53,9 @@ export function StartInput({ setDataToStore, state }) {
   }
 //message to show just in case all input are not filled up
   const [errorMessage, setErrorMessage] = useState('');
-  const checkIfInputsAreFilled = new Set( Object.values(data).filter(x => x === ''))
-  const booleanResult =  checkIfInputsAreFilled.has('')
+  const checkIfInputsStringsAreFilled = new Set( Object.values(data).filter(x => x === '')).has('')
+  const checkIfInputsNumbersAreFilled = new Set( Object.values(data).filter(x => x === 0)).has(0)
+  const booleanResult =  checkIfInputsStringsAreFilled || checkIfInputsNumbersAreFilled
 
   function onPreventivoButton() {
 
@@ -157,6 +158,7 @@ export function StartInput({ setDataToStore, state }) {
               value={state.dataReducer.tipo || data.tipo}
               onChange={(e) => handleTipo(e)}
             >
+              
               <option value="1">Piccolo</option>
               <option value="2">Medio</option>
               <option value="3">Grande</option>
