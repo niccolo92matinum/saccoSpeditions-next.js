@@ -2,20 +2,24 @@ import { connect } from "react-redux";
 import { useRouter } from "next/router";
 
 function PlatformCard({ allInfo, saveUserChoise }) {
-  //chiedi a sergio perche bisogna inserire la funzione come argomento
+  // chiedi a sergio perche bisogna inserire la funzione come argomento
 
   const router = useRouter();
   const handleGoToOverview = () => {
     router.push("/Overview");
   };
 
+  const choise = () =>{
+    saveUserChoise(allInfo)
+    handleGoToOverview()
+  }
+
   return (
-    <>
-      <div className="header-master-master">
+    <div className="header-master-master">
         <div className="header-master">
           <div className="header">
             <div className="children">
-              <img src={allInfo.img} alt="" width={70} height={70}></img>
+              <img src={allInfo.img} alt="" width={70} height={70} />
             </div>
             <div className="children">
               <h3 className="time">{allInfo.tempoSpedizione} giorni</h3>
@@ -29,7 +33,8 @@ function PlatformCard({ allInfo, saveUserChoise }) {
               <button
                 className="button-start"
                 onClick={() => {
-                  saveUserChoise(allInfo), handleGoToOverview();
+          
+                  choise()
                 }}
               >
                 Scegli
@@ -72,16 +77,13 @@ function PlatformCard({ allInfo, saveUserChoise }) {
           </div>
         </div>
       </div>
-    </>
   );
 }
 
-const saveUserChoise = (x) => {
-  return {
+const saveUserChoise = (x) => ({
     type: "SAVE_USER_CHOISE",
     payload: x,
-  };
-};
+  });
 
 const mapStateToProps = (state) => ({
   state,
@@ -90,5 +92,5 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
   saveUserChoise,
 };
-console.log(saveUserChoise,'save')
+
 export default connect(mapStateToProps, mapDispatchToProps)(PlatformCard);

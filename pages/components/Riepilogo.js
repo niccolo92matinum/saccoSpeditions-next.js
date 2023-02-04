@@ -1,8 +1,10 @@
 import { connect } from "react-redux";
 import PreviewPage from "./PreviewPage";
 
+
+// eslint-disable-next-line react/prop-types
 function Riepilogo({ state, allInfo, setDataToStore,boolean }) {
-  console.log(allInfo, "dentro Riepilogo", state);
+
 
   const pickUpDate = new Date();
   pickUpDate.setDate(pickUpDate.getDate() + 1);
@@ -16,22 +18,12 @@ function Riepilogo({ state, allInfo, setDataToStore,boolean }) {
         "Content-Type": "application/json",
       },
     });
-    console.log(response, "ecco");
-    const finalData = await response.json();
+
+    await response.json();
   };
-  /*
-let dataFromBackEnd
-
-const fetchData = async() =>{
-  const response = await fetch('/api/speedy')
-  const dataFromBackEnd = await response.json()
-  
-
-
-}*/
 
   const sendToBackAllData = () => {
-    //inserisco tutti i dati nello store
+    // inserisco tutti i dati nello store
     
       const x = setDataToStore(allInfo);
       // faccio una POST
@@ -49,6 +41,7 @@ const fetchData = async() =>{
 
         <div className="conteiner-compagnia">
           <p className="p-placeholder">Compagnia</p>
+     
           <p className="p-data">{state.choiseReducer.nome}</p>
         </div>
         <div className='div-hr'>
@@ -95,7 +88,7 @@ const fetchData = async() =>{
           </div>
         </div>
         <div className="container-button">
-        <PreviewPage prova={sendToBackAllData} boolean={boolean}></PreviewPage>
+        <PreviewPage prova={sendToBackAllData} boolean={boolean} />
         
         </div>
        
@@ -103,9 +96,9 @@ const fetchData = async() =>{
     </div>
   );
 }
-//
-//<button className="button-riepilogo" onClick={()=>{sendToBackAllData()}}>Paga</button>
-//<button className="button-riepilogo" onClick={()=>{ fetchData()}}>GET</button>
+
+// <button className="button-riepilogo" onClick={()=>{sendToBackAllData()}}>Paga</button>
+// <button className="button-riepilogo" onClick={()=>{ fetchData()}}>GET</button>
 export const setDataToStore = (data) => ({
   type: "SAVE_PARTENZA_SPEDIZIONE_DATA",
   payload: data,

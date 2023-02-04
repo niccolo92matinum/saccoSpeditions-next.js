@@ -1,5 +1,6 @@
 const initialState = {};
 
+// eslint-disable-next-line default-param-last
 function dataReducer(state = initialState, action) {
  // console.log(state, 'state action ', action)
   switch (action.type) {

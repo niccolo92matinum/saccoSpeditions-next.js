@@ -1,6 +1,6 @@
-import styles from '../styles/Home.module.css'
-import Nav from "./components/Nav"
+
 import {connect} from 'react-redux'
+import Nav from "./components/Nav"
 
 import PlatformCard from "./components/PlatformCard"
 import StartInput from './components/StartInput'
@@ -25,12 +25,12 @@ const createObjCompany =
     const finalDate = today.setDate(today.getDate() + timeToAdd );
     const consegnaStimata = {...final,...{consegnaStimata: finalDate}}
       const modifyFinalPrice = consegnaStimata.costoAggiuntivo+consegnaStimata.prezzo
-      consegnaStimata['prezzo']= modifyFinalPrice
+      consegnaStimata.prezzo= modifyFinalPrice
 
 return consegnaStimata
     
 })
-    console.log(createObjCompany , 'lillo')
+
 
 
 
@@ -39,8 +39,8 @@ return consegnaStimata
     return (
       <>
        
-       <Nav></Nav>
-       <StartInput></StartInput>
+       <Nav />
+       <StartInput />
       <div>
         {
           createObjCompany.map((allInfo)=><PlatformCard key={allInfo.id} allInfo={allInfo}  />)  

@@ -1,9 +1,9 @@
+import {connect} from 'react-redux'
+import {useState} from 'react'
 import Partenza from './components/Partenza'
 import Spedizione from './components/Spedizione'
 import Riepilogo from './components/Riepilogo'
 import Nav from './components/Nav'
-import {connect} from 'react-redux'
-import {useState} from 'react'
 
 
 
@@ -16,7 +16,7 @@ const checkIfInputsAreFilled = new Set( Object.values(data).filter(x => x === ''
 
 const checkIfInputsAreeAllPresent = Object.values(data).length === 12
 
-let boolean = !checkIfInputsAreFilled && checkIfInputsAreeAllPresent
+const boolean = !checkIfInputsAreFilled && checkIfInputsAreeAllPresent
 
    const handleObjDispatch = (e,key) =>{
     setData({...data, ...{[key]:e.target.value} })
@@ -25,15 +25,15 @@ let boolean = !checkIfInputsAreFilled && checkIfInputsAreeAllPresent
 
     return(
         <>
-            <Nav></Nav>
+            <Nav />
            <div className='overview-container'>
-              <Partenza name='Partenza' state={state} handle={handleObjDispatch}></Partenza>
-              <Riepilogo state={state} allInfo={data} boolean={boolean}></Riepilogo>
+              <Partenza name='Partenza' state={state} handle={handleObjDispatch} />
+              <Riepilogo state={state} allInfo={data} boolean={boolean} />
        
            </div> 
            <div className='overview-container-spedizione'>
-              <Spedizione name='Spedizione' state={state} handle={handleObjDispatch}></Spedizione>
-              <div className=""></div>
+              <Spedizione name='Spedizione' state={state} handle={handleObjDispatch} />
+              <div className="" />
            </div> 
          
         </>

@@ -26,6 +26,9 @@
       "ecmaFeatures": {
         "jsx": true // enable linting for jsx files
       },
+      "babelOptions": {
+        "presets": ["@babel/preset-react"]
+     },
       "ecmaVersion": 11,
       "requireConfigFile": false,
       "sourceType": "module"
@@ -41,6 +44,10 @@
       "react/react-in-jsx-scope": "off",
      // NextJs specific fix: allow jsx syntax in js files
       "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }], //should add ".ts" if typescript project
-      "react/display-name": 1
+      "react/display-name": 1,
+      "react/prop-types": "off",
+      "react/button-has-type":"off",
+      "react/label-has-associated-control":"off"
+      
     }
   }
