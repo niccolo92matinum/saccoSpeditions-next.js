@@ -13,7 +13,7 @@ export default function Spedizione({ name, state, handle }) {
 
   return (
     <>
-      <div className="container-partenza">
+      <div className="container-spedizione">
         <div className="child-container-partenza">
           <h4 className="title-patenzaSpedizione">{name}</h4>
           <div className="master-children-partenza">

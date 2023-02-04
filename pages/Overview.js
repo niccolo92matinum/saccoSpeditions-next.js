@@ -33,7 +33,7 @@ let boolean = !checkIfInputsAreFilled && checkIfInputsAreeAllPresent
            </div> 
            <div className='overview-container-spedizione'>
               <Spedizione name='Spedizione' state={state} handle={handleObjDispatch}></Spedizione>
-              <div className="container-spedizione"></div>
+              <div className=""></div>
            </div> 
          
         </>
