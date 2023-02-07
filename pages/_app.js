@@ -7,7 +7,7 @@ import '../styles/globals.css'
 import { Provider } from 'react-redux'
 import { configureStore } from '@reduxjs/toolkit'
 import { createStore } from "redux";
-import reducer from "./reducers/index";
+import reducer from "../reducers/index";
 
 const store = createStore(reducer);
 
