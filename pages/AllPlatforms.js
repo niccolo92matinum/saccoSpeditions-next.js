@@ -3,6 +3,8 @@ import {connect} from 'react-redux'
 import Nav from "./components/Nav"
 
 import PlatformCard from "./components/PlatformCard"
+
+// eslint-disable-next-line import/named
 import StartInput from './components/StartInput'
 
 function AllPlatforms({state}){

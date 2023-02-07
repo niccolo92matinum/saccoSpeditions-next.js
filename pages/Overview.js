@@ -10,7 +10,7 @@ import Nav from './components/Nav'
  function  Overview({state}) {
 
    const [data, setData] = useState({})
-console.log(data, 'datassss')
+
 
 const checkIfInputsAreFilled = new Set( Object.values(data).filter(x => x === '')).has('')
 

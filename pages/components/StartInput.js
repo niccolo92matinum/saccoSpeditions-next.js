@@ -3,7 +3,7 @@ import { useState } from "react";
 import { connect } from "react-redux";
 import { useRouter } from "next/router";
 
-export function StartInput({ setDataToStore, state }) {
+function StartInput({ setDataToStore, state }) {
   const [data, setData] = useState({
     partenza: "",
     destinazione: "",
@@ -62,38 +62,38 @@ export function StartInput({ setDataToStore, state }) {
   const calculatePrice = (dat) => {
     // _______TIPO______
     let priceByType;
-    if (data.tipo === 1) {
+    if (dat.tipo === 1) {
       // console.log('sono dentro')
       priceByType = 5;
-    } else if (data.tipo === 2) {
+    } else if (dat.tipo === 2) {
       priceByType = 10;
-    } else if (data.tipo === 3) {
+    } else if (dat.tipo === 3) {
       priceByType = 15;
     }
     // ________PESO_________
     let priceByWeigth;
-    if (data.peso < 5) {
+    if (dat.peso < 5) {
       priceByWeigth = 3;
-    } else if (data.peso > 5) {
+    } else if (dat.peso > 5) {
       priceByWeigth = 10;
     }
     // ______LARGHEZZA____
     let priceBywidth = 5;
 
-    if (data.larghezza < 30) {
+    if (dat.larghezza < 30) {
       priceBywidth = 10;
-    } else if (data.larghezza > 30) {
+    } else if (dat.larghezza > 30) {
       priceBywidth = 20;
     }
     // ______ALTEZZA_____
     let priceByHeigth = 15;
 
-    if (data.altezza < 20) {
+    if (dat.altezza < 20) {
       priceByHeigth = 3;
     }
     // ______LUNGHEZZA_______
     let priceByLength = 15;
-    if (data.lunghezza < 20) {
+    if (dat.lunghezza < 20) {
       priceByLength = 3;
     }
 

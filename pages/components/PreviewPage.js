@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import React from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import {connect} from 'react-redux'
@@ -9,20 +10,19 @@ import {connect} from 'react-redux'
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
 );
-function PreviewPage({prova, state,boolean}) {
+function PreviewPage({prova,boolean}) {
 
-console.log(state, 'dentro preview page', boolean)
 
 
   React.useEffect(() => {
     // Check to see if this is a redirect back from Checkout
     const query = new URLSearchParams(window.location.search);
     if (query.get('success')) {
-      console.log('Order placed! You will receive an email confirmation.');
+     // console.log('Order placed! You will receive an email confirmation.');
     }
 
     if (query.get('canceled')) {
-      console.log('Order canceled -- continue to shop around and checkout when you’re ready.');
+      // console.log('Order canceled -- continue to shop around and checkout when you’re ready.');
     }
   }, []);
 

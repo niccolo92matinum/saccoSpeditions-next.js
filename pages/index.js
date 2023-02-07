@@ -1,5 +1,4 @@
-import Head from 'next/head'
-import Image from 'next/image'
+
 
 import Nav from "./components/Nav"
 import StartInput from './components/StartInput'
@@ -13,7 +12,7 @@ export default function Home() {
 
     <Nav/>
   
-     <StartInput/><
+     <StartInput/>
     
     </>
   

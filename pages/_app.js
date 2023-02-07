@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-props-no-spreading */
+
+import 'bootstrap/dist/css/bootstrap.css'
 import '../styles/globals.css'
 
 import { Provider } from 'react-redux'
