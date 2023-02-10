@@ -6,6 +6,6 @@ import partenzaSpedizioneReducer from './partenzaSpedizioneReducer'
 export default combineReducers({
     dataReducer,
     choiseReducer,
-    partenzaSpedizioneReducer
+     partenzaSpedizioneReducer
 
   });

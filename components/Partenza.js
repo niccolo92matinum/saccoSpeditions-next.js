@@ -1,13 +1,13 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 export default function Partenza({ name, state, handle }) {
-  const choise = state.choiseReducer;
+
 
   const pickUpDate = new Date();
   pickUpDate.setDate(pickUpDate.getDate() + 1);
   const finalPickUpDate = pickUpDate.toISOString().substring(0, 10);
 
   const renderAuthSelect = () => {
-    if (choise.nome === "DHL") {
+    if (state.choiseReducer.nome === "DHL") {
       return <option>Ritiro a Domicilio</option>;
     } 
       return <option>Ritiro in sede</option>;
@@ -24,7 +24,7 @@ export default function Partenza({ name, state, handle }) {
               <label className="control-label" >
                 Ritiro
               </label>
-              <select type="number"  className="form-select" value={choise.tipo} disabled>
+              <select type="number"  className="form-select" value={state.choiseReducer.tipo} disabled>
                 {renderAuthSelect()}
               </select>
             </div>

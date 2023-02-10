@@ -8,6 +8,7 @@ import { Provider } from 'react-redux'
 import { configureStore } from '@reduxjs/toolkit'
 import { createStore } from "redux";
 import reducer from "../reducers/index";
+import  wrapper from '../store';
 
 const store = createStore(reducer);
 
@@ -22,4 +23,4 @@ function MyApp({ Component, pageProps }) {
   )
 }
 
-export default MyApp
+export default wrapper.withRedux(MyApp);

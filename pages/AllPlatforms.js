@@ -1,11 +1,11 @@
 
 import {connect} from 'react-redux'
-import Nav from "./components/Nav"
+import Nav from "../components/Nav"
 
-import PlatformCard from "./components/PlatformCard"
+import PlatformCard from "../components/PlatformCard"
 
 // eslint-disable-next-line import/named
-import StartInput from './components/StartInput'
+import StartInput from '../components/StartInput'
 
 function AllPlatforms({state}){
 
@@ -45,7 +45,7 @@ return consegnaStimata
        <StartInput />
       <div>
         {
-          createObjCompany.map((allInfo)=><PlatformCard key={allInfo.id} allInfo={allInfo}  />)  
+          createObjCompany.map((allInfo)=><PlatformCard key={allInfo.id} Info={allInfo}  />)  
         }
       </div>
             

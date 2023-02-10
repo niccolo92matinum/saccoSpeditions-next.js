@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
 export default function Spedizione({ name, state, handle }) {
-  const choise = state.choiseReducer;
+
 
   const renderAuthSelect = () => {
-    if (choise.nome === "DHL") {
+    if (state.choiseReducer.nome === "DHL") {
       return <option>Spedizione a Domicilio</option>;
     } 
       return <option>Spedizione in sede</option>;

@@ -113,8 +113,9 @@ function StartInput({ setDataToStore, state }) {
       setErrorMessage('Inserisci tutti i campie e richiedi il Preventivo!');
     }else{
       const prezzo = calculatePrice(data);
+      const newData = data
 
-      setDataToStore({ ...data, prezzo });
+      setDataToStore({ ...newData, prezzo });
   
       handleGoToAllPlatforms();
     }
