@@ -382,6 +382,7 @@ margin-bottom: 0%;
     width: 100%;
     padding-top: 50px;
     opacity: 0.8;
+    float: left;
 
     
   }
@@ -471,8 +472,40 @@ height: 100px;
   width: 200px;
   
   }
-  
+  /*_______________________*/
+
+  .container-startEndCard{
  
+    display: none;
+
+  }
+  .container-platformCards{
+    float: left;
+    position: absolute;
+    padding-top: 40px;
+    width: 100%;
+  }
+
+  .hideOnMobile{
+  display: none !important;
+  }
+
+  .header{
+    display: flex;
+    height: 200px;
+    
+  }
+ 
+.header-master{
+width: auto;
+margin-left: 5%;
+margin-right: 5%;
+}
+
+.children{
+  padding: 0%;
+  
+}
   
   
   

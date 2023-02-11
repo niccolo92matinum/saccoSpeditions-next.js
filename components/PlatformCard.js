@@ -18,6 +18,7 @@ function PlatformCard({ Info, saveUserChoise }) {
     <div className="header-master-master">
         <div className="header-master">
           <div className="header">
+            
             <div className="children">
               <img src={Info.img||''} alt="" width={70} height={70} />
             </div>
@@ -42,7 +43,7 @@ function PlatformCard({ Info, saveUserChoise }) {
             </div>
           </div>
 
-          <div className="header">
+          <div className="header hideOnMobile">
             <div className="children">
               <div>
                 <p className="p-placeholder">Partenza</p>
