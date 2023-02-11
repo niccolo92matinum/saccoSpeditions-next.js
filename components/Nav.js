@@ -2,10 +2,10 @@
 export default function Nav() {
   return (
   <>
-      <nav className="nav">
+      <nav className="">
         <div className="container">
         
-          <a className="navbar-brand" href="/">
+          <a className="" href="/">
             SaccoSpeditions
           </a>
         </div>

@@ -1,6 +1,4 @@
-
-
-.nav{
+nav{
   position: fixed; /* Set the navbar to fixed position */
   top: 0; /* Position the navbar at the top of the page */
   width: 100%; /* Full width */
@@ -8,9 +6,10 @@
   background-color: rgb(253, 253, 253);
   height: 50px;
   z-index: 2;
+
 }
 /* Links inside the navbar */
-.nav a {
+nav a {
   float: left;
   display: block;
   color: black;
@@ -20,7 +19,7 @@
 }
 
 /* Change background on mouse-over */
-.nav a:hover {
+nav a:hover {
   background: #ddd;
   color: black;
 }
@@ -44,6 +43,9 @@
   top: 0; 
   width: 100%;
   z-index: -1;
+  left: 0;
+  
+ 
 }
 
 
@@ -367,5 +369,111 @@ margin-bottom: 0%;
 
 
 
+@media screen and (max-width: 992px) {
+  
+  
+  
+  /*_________________________________________*/
+  .masterContainer{
+      
+    height: 800px;
+    margin: auto;
+    position: absolute;
+    width: 100%;
+    padding-top: 50px;
+    opacity: 0.8;
 
+    
+  }
 
+  .container-img{
+   height: 100%;
+  }
+  .imgDesktop{
+    height: 100%;
+  }
+
+  .partDesc{
+   float: left;
+   clear: left;
+   width: 100%;
+   padding-top: 20px;
+
+   
+  
+  }
+  
+  .dest{
+  margin: 0;
+  }
+  
+  
+  .mainPartDesc{
+  
+display: block;
+width: 90%;
+height: 100px;
+  }
+  
+  .mainPesoLarghezzaEcc{
+    display: block;
+    width: 90%;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .singleDiv{
+    float: left;
+    clear: left;
+    padding-top: 20px;
+  }
+  
+  .peso{
+    width: 70%;
+    margin: 0;
+  
+  }
+  .larghezza{
+    width: 70%;
+    margin: 0;
+  
+  }
+  .lunghezza{
+    width: 70%;
+    margin: 0;
+  }
+  .altezza{
+    width: 70%;
+    margin: 0;
+  }
+  
+  .tipoPacco{
+    width: 70%;
+   
+    margin-left: auto;
+    margin-right: auto;
+ 
+ 
+  }
+  
+  .mainButton{
+    display: block;
+    clear: left;
+    padding-top: 20px;
+    text-align: center;
+  
+  }
+  
+  .preventivo{
+  
+ 
+  width: 200px;
+  
+  }
+  
+ 
+  
+  
+  
+}

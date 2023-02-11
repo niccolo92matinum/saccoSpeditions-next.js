@@ -12,7 +12,10 @@ export default function Home() {
 
     <Nav/>
   
-     <StartInput/>
+     <div className="start-input-container">
+      <StartInput/>
+     </div>
+   
     
     </>
   

@@ -128,111 +128,111 @@ function StartInput({ setDataToStore, state }) {
 
   return (
     <div className="masterContainer">
-        <div className="mainPartDesc">
-          <div className="form-group col-md-4 partDesc">
-            <label className="control-label">Partenza</label>
-            <input
-              disabled={disableButtonPreventivo}
-              placeholder="CAP o città"
-              className="form-control output"
-              value={state.dataReducer.partenza || data.partenza}
-              onChange={(e) => handlePartenza(e)}
-            />
-          </div>
-          <div className="form-group col-md-4 partDesc dest">
-            <label className="control-label">Destinazione</label>
-            <input
-              disabled={disableButtonPreventivo}
-              placeholder="CAP o città"
-              className="form-control"
-              value={state.dataReducer.destinazione || data.destinazione}
-              onChange={(e) => handleDestinazione(e)}
-            />
-          </div>
-        </div>
-
-        <div className="mainPesoLarghezzaEcc">
-          <div className=" singleDiv tipoPacco">
-            <label className="control-label">Tipo Pacco</label>
-            <select
-              disabled={disableButtonPreventivo}
-              type="number"
-              className="form-select"
-              value={state.dataReducer.tipo || data.tipo}
-              onChange={(e) => handleTipo(e)}
-            >
-              
-              <option value="1">Piccolo</option>
-              <option value="2">Medio</option>
-              <option value="3">Grande</option>
-            </select>
-          </div>
-
-          <div className="form-group singleDiv peso ">
-            <label className="control-label">Peso</label>
-            <input
-              disabled={disableButtonPreventivo}
-              type="number"
-              placeholder="Kg"
-              className="form-control "
-              value={state.dataReducer.peso || data.peso}
-              onChange={(e) => handlePeso(e)}
-            />
-          </div>
-          <div className="form-group  singleDiv larghezza">
-            <label className="control-label">Larghezza</label>
-            <input
-              disabled={disableButtonPreventivo}
-              type="number"
-              placeholder="cm"
-              className="form-control"
-              value={state.dataReducer.larghezza || data.larghezza}
-              onChange={(e) => handleLarghezza(e)}
-            />
-          </div>
-          <div className="form-group  singleDiv altezza">
-            <label className="control-label">Altezza</label>
-            <input
-              disabled={disableButtonPreventivo}
-              type="number"
-              placeholder="cm"
-              className="form-control"
-              value={state.dataReducer.altezza || data.altezza}
-              onChange={(e) => handleAltezza(e)}
-            />
-          </div>
-          <div className="form-group  singleDiv lunghezza">
-            <label className="control-label">Lunghezza</label>
-            <input
-              disabled={disableButtonPreventivo}
-              type="number"
-              placeholder="cm"
-              className="form-control"
-              value={state.dataReducer.lunghezza || data.lunghezza}
-              onChange={(e) => handleLunghezza(e)}
-            />
-          </div>
-        </div>
-
-        <div className="mainButton">
-          <div className="preventivo">
-            {!disableButtonPreventivo && (
-              // eslint-disable-next-line jsx-a11y/no-redundant-roles
-              <button
-                disabled={disableButtonPreventivo}
-                role="button"
-                className=" button-start"
-                onClick={() => {
-                  onPreventivoButton();
-                }}
-              >
-                         {errorMessage || 'Preventivo'}
-              </button>
-            )}
-  
-          </div>
-        </div>
+    <div className="mainPartDesc">
+      <div className="form-group col-md-4 partDesc">
+        <label className="control-label">Partenza</label>
+        <input
+          disabled={disableButtonPreventivo}
+          placeholder="CAP o città"
+          className="form-control output"
+          value={state.dataReducer.partenza || data.partenza}
+          onChange={(e) => handlePartenza(e)}
+        />
       </div>
+      <div className="form-group col-md-4 partDesc dest">
+        <label className="control-label">Destinazione</label>
+        <input
+          disabled={disableButtonPreventivo}
+          placeholder="CAP o città"
+          className="form-control"
+          value={state.dataReducer.destinazione || data.destinazione}
+          onChange={(e) => handleDestinazione(e)}
+        />
+      </div>
+    </div>
+
+    <div className="mainPesoLarghezzaEcc">
+      <div className=" singleDiv tipoPacco">
+        <label className="control-label">Tipo Pacco</label>
+        <select
+          disabled={disableButtonPreventivo}
+          type="number"
+          className="form-select"
+          value={state.dataReducer.tipo || data.tipo}
+          onChange={(e) => handleTipo(e)}
+        >
+          
+          <option value="1">Piccolo</option>
+          <option value="2">Medio</option>
+          <option value="3">Grande</option>
+        </select>
+      </div>
+
+      <div className="form-group singleDiv peso ">
+        <label className="control-label">Peso</label>
+        <input
+          disabled={disableButtonPreventivo}
+          type="number"
+          placeholder="Kg"
+          className="form-control "
+          value={state.dataReducer.peso || data.peso}
+          onChange={(e) => handlePeso(e)}
+        />
+      </div>
+      <div className="form-group  singleDiv larghezza">
+        <label className="control-label">Larghezza</label>
+        <input
+          disabled={disableButtonPreventivo}
+          type="number"
+          placeholder="cm"
+          className="form-control"
+          value={state.dataReducer.larghezza || data.larghezza}
+          onChange={(e) => handleLarghezza(e)}
+        />
+      </div>
+      <div className="form-group  singleDiv altezza">
+        <label className="control-label">Altezza</label>
+        <input
+          disabled={disableButtonPreventivo}
+          type="number"
+          placeholder="cm"
+          className="form-control"
+          value={state.dataReducer.altezza || data.altezza}
+          onChange={(e) => handleAltezza(e)}
+        />
+      </div>
+      <div className="form-group  singleDiv lunghezza">
+        <label className="control-label">Lunghezza</label>
+        <input
+          disabled={disableButtonPreventivo}
+          type="number"
+          placeholder="cm"
+          className="form-control"
+          value={state.dataReducer.lunghezza || data.lunghezza}
+          onChange={(e) => handleLunghezza(e)}
+        />
+      </div>
+    </div>
+
+    <div className="mainButton">
+      <div className="preventivo">
+        {!disableButtonPreventivo && (
+          // eslint-disable-next-line jsx-a11y/no-redundant-roles
+          <button
+            disabled={disableButtonPreventivo}
+            role="button"
+            className=" button-start"
+            onClick={() => {
+              onPreventivoButton();
+            }}
+          >
+                     {errorMessage || 'Preventivo'}
+          </button>
+        )}
+
+      </div>
+    </div>
+  </div>
   );
 }
 // action

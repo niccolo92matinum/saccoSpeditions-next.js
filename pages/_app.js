@@ -16,8 +16,10 @@ const store = createStore(reducer);
 function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
-      
-      <Component {...pageProps} />
+   
+       <Component {...pageProps} />
+
+     
     </Provider>
   
   )
