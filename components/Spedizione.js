@@ -1,6 +1,10 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
-export default function Spedizione({ name, state, handle }) {
+import { connect } from "react-redux";
+import PreviewPage from "./PreviewPage";
+
+
+function Spedizione({ name, state, handle,boolean, allInfo, setDataToStore}) {
 
 
   const renderAuthSelect = () => {
@@ -10,6 +14,32 @@ export default function Spedizione({ name, state, handle }) {
       return <option>Spedizione in sede</option>;
     
   };
+
+  const pickUpDate = new Date();
+  pickUpDate.setDate(pickUpDate.getDate() + 1);
+  
+
+  const sendAllParameter = async (store) => {
+    const response = await fetch("/api/speedy", {
+      method: "POST",
+      body: JSON.stringify(store),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    await response.json();
+  };
+
+  const sendToBackAllData = () => {
+    // inserisco tutti i dati nello store
+    
+      const x = setDataToStore(allInfo);
+      // faccio una POST
+      sendAllParameter({ ...state, ...{ partenzaSpedizioneReducer: x.payload } });
+    
+    
+    };
 
   return (
     <div className="container-spedizione">
@@ -91,7 +121,22 @@ export default function Spedizione({ name, state, handle }) {
               />
             </div>
           </div>
+          <div className="container-button fullscreen-hidden">
+        <PreviewPage prova={sendToBackAllData} boolean={boolean} />
+        
+        </div>
         </div>
       </div>
   );
 }
+
+export const setDataToStore = (data) => ({
+  type: "SAVE_PARTENZA_SPEDIZIONE_DATA",
+  payload: data,
+});
+
+const mapDispatchToProps = {
+  setDataToStore,
+};
+
+export default connect(null, mapDispatchToProps)(Spedizione);

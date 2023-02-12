@@ -26,13 +26,18 @@ function Overview({state}) {
       <Nav />
       <div className="overview-container">
         <Partenza name="Partenza" state={state} handle={handleObjDispatch} />
+        
         <Riepilogo state={state} allInfo={data} boolean={boolean} />
+      
+        
       </div>
       <div className="overview-container-spedizione">
         <Spedizione
           name="Spedizione"
           state={state}
           handle={handleObjDispatch}
+          allInfo={data}
+          boolean={boolean} 
         />
         <div className="" />
       </div>

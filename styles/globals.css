@@ -507,6 +507,47 @@ margin-right: 5%;
   
 }
   
+  .container-partenza{
+    width: auto;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  .overview-container-spedizione{
+    display: block;
+    padding-top: 40px;
   
+  }
+
+  .container-spedizione{
+    width: auto;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+.master-children-partenza{
+  display: block;
+}
+.overview-container{
+display: block;
+}
+
+.children-partenza{
+  width: auto;
+}
+
+.showOnMobile{
+  position: relative;
+  padding-bottom: 0%;
+}
+.fullscreen-hidden{
+  padding-top: 30px;
+}
   
+}
+
+
+
+@media screen and (min-width: 992px) {
+  .fullscreen-hidden{
+    display: none;
+  }
 }
