@@ -15,6 +15,7 @@ function StartInput({ setDataToStore, state }) {
   });
 
   const handleTipo = (e) => {
+
     setData({ ...data, ...{ tipo: Number(e.target.value) } });
   };
 
@@ -39,7 +40,8 @@ function StartInput({ setDataToStore, state }) {
   };
 
   const handleDestinazione = (e) => {
-    setData({ ...data, ...{ destinazione: e.target.value } });
+    const t = { ...data, ...{ destinazione: e.target.value } }
+    setData(t);
   };
 
   const router = useRouter();
