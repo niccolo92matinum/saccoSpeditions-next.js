@@ -10,19 +10,19 @@ function AllPlatforms({ state }) {
   const arrCompany = [
     {
       id: 0,
-      nome: "DHL",
+      nome:"DHL",
       costoAggiuntivo: 5,
       tempoSpedizione: 2,
-      tipoRitiro: "Domicilio",
-      img: "./aa.jpeg",
+      tipoRitiro:"Domicilio",
+      img:"./aa.jpeg",
     },
     {
       id: 1,
-      nome: "Poste Italiane",
+      nome:"PosteItaliane",
       costoAggiuntivo: 15,
       tempoSpedizione: 6,
-      tipoRitiro: "Sede più vicina",
-      img: "/poste.png",
+      tipoRitiro:"Sede più vicina",
+      img:"/poste.png",
     },
   ];
 
@@ -39,6 +39,8 @@ function AllPlatforms({ state }) {
 
     return consegnaStimata;
   });
+
+ 
 
   return (
     <>

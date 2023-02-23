@@ -1,11 +1,13 @@
-import {parameter} from './data'
+
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+
+export  const parameter = []
 
 export default async function handler(req, res) {
 
   
-
+const priceToSend = parameter[0]
 
 
   if (req.method === 'POST') {
@@ -20,7 +22,7 @@ export default async function handler(req, res) {
               product_data:{
                 name:'Your spedition price'
               },
-              unit_amount:parameter[0]
+              unit_amount:priceToSend
             },
             quantity: 1,
           },

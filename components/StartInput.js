@@ -14,6 +14,16 @@ function StartInput({ setDataToStore, state }) {
     lunghezza: 0,
   });
 
+  /*
+ 
+  */
+
+  
+
+    const handlePartenza = (e) => {
+      setData({ ...data, ...{ partenza: e.target.value } });
+    };
+
   const handleTipo = (e) => {
 
     setData({ ...data, ...{ tipo: Number(e.target.value) } });
@@ -35,19 +45,19 @@ function StartInput({ setDataToStore, state }) {
     setData({ ...data, ...{ lunghezza: Number(e.target.value) } });
   };
 
-  const handlePartenza = (e) => {
-    setData({ ...data, ...{ partenza: e.target.value } });
-  };
+  
 
   const handleDestinazione = (e) => {
-    const t = { ...data, ...{ destinazione: e.target.value } }
-    setData(t);
+    
+    setData({ ...data, ...{ destinazione: e.target.value } });
   };
 
   const router = useRouter();
   const handleGoToAllPlatforms = () => {
     router.push("/AllPlatforms");
   };
+  const routeAtMoment = router.route 
+
 
   // eslint-disable-next-line no-unused-vars
   const [inputsState, setInputsState] = useState(router.route);
@@ -65,7 +75,7 @@ function StartInput({ setDataToStore, state }) {
     // _______TIPO______
     let priceByType;
     if (dat.tipo === 1) {
-      // console.log('sono dentro')
+
       priceByType = 5;
     } else if (dat.tipo === 2) {
       priceByType = 10;
@@ -130,24 +140,27 @@ function StartInput({ setDataToStore, state }) {
 
   return (
     <div className="masterContainer">
+ 
     <div className="mainPartDesc">
+   
       <div className="form-group col-md-4 partDesc">
         <label className="control-label">Partenza</label>
         <input
           disabled={disableButtonPreventivo}
           placeholder="CAP o città"
           className="form-control output"
-          value={state.dataReducer.partenza || data.partenza}
-          onChange={(e) => handlePartenza(e)}
+          value={routeAtMoment !== "/AllPlatforms" ? undefined:state.dataReducer.partenza  }
+          onChange={(e) =>{handlePartenza(e)}}
         />
       </div>
+     
       <div className="form-group col-md-4 partDesc dest">
         <label className="control-label">Destinazione</label>
         <input
           disabled={disableButtonPreventivo}
           placeholder="CAP o città"
           className="form-control"
-          value={state.dataReducer.destinazione || data.destinazione}
+          value={routeAtMoment === "/AllPlatforms" ? state.dataReducer.destinazione : undefined}
           onChange={(e) => handleDestinazione(e)}
         />
       </div>
@@ -160,7 +173,7 @@ function StartInput({ setDataToStore, state }) {
           disabled={disableButtonPreventivo}
           type="number"
           className="form-select"
-          value={state.dataReducer.tipo || data.tipo}
+          value={routeAtMoment === "/AllPlatforms" ? state.dataReducer.tipo : undefined}
           onChange={(e) => handleTipo(e)}
         >
           
@@ -177,7 +190,7 @@ function StartInput({ setDataToStore, state }) {
           type="number"
           placeholder="Kg"
           className="form-control "
-          value={state.dataReducer.peso || data.peso}
+          value={routeAtMoment === "/AllPlatforms" ? state.dataReducer.peso : undefined}
           onChange={(e) => handlePeso(e)}
         />
       </div>
@@ -188,7 +201,7 @@ function StartInput({ setDataToStore, state }) {
           type="number"
           placeholder="cm"
           className="form-control"
-          value={state.dataReducer.larghezza || data.larghezza}
+          value={routeAtMoment === "/AllPlatforms" ? state.dataReducer.larghezza : undefined}
           onChange={(e) => handleLarghezza(e)}
         />
       </div>
@@ -199,7 +212,7 @@ function StartInput({ setDataToStore, state }) {
           type="number"
           placeholder="cm"
           className="form-control"
-          value={state.dataReducer.altezza || data.altezza}
+          value={routeAtMoment === "/AllPlatforms" ? state.dataReducer.altezza : undefined}
           onChange={(e) => handleAltezza(e)}
         />
       </div>
@@ -210,7 +223,7 @@ function StartInput({ setDataToStore, state }) {
           type="number"
           placeholder="cm"
           className="form-control"
-          value={state.dataReducer.lunghezza || data.lunghezza}
+          value={routeAtMoment === "/AllPlatforms" ? state.dataReducer.lunghezza : undefined}
           onChange={(e) => handleLunghezza(e)}
         />
       </div>
@@ -233,7 +246,10 @@ function StartInput({ setDataToStore, state }) {
         )}
 
       </div>
+    
+     
     </div>
+
   </div>
   );
 }

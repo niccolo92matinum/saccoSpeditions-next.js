@@ -79,7 +79,7 @@ function Spedizione({ name, state, handle,boolean, allInfo, setDataToStore}) {
 
           <div className="master-children-partenza">
             <div className="children-partenza">
-              <label className="control-label">Cità</label>
+              <label className="control-label">Città</label>
               <input
                 placeholder=""
                 className="form-control"

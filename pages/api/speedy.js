@@ -1,11 +1,12 @@
 
-import {parameter} from './data'
+import {parameter} from './checkout_sessions'
+
 
 export default function preventive(req, res) {
 
     if(req.method === 'GET'){
 
-     
+
 
      res.status(200).json(parameter)
     }else if(req.method === 'POST'){
@@ -15,7 +16,7 @@ export default function preventive(req, res) {
     // _______TIPO______
     let priceByType;
     if (data.tipo === 1) {
-      // console.log('sono dentro')
+
       priceByType = 5;
     } else if (data.tipo === 2) {
       priceByType = 10;
@@ -63,13 +64,15 @@ let price =  calculatePrice(dat.dataReducer)*100
 
   if(dat.choiseReducer.nome === 'DHL'){
     price+= 500
-  }else if(dat.choiseReducer.nome === 'Poste Italiane'){
-     price += 15000
-  }
-     // eslint-disable-next-line no-import-assign
-
+    parameter[0] = price
+  }else{
+                                 
+     price += 1500
      parameter[0] = price
- 
+  }
+  
+    
+
      res.status(201).json(parameter)
     }
    
@@ -79,3 +82,5 @@ let price =  calculatePrice(dat.dataReducer)*100
      
    }
    
+
+  
