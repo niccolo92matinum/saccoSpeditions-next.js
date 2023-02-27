@@ -9,7 +9,7 @@ export default async function handler(req, res) {
   
 const priceToSend = parameter[0]
 
-console.log(parameter)
+
   if (req.method === 'POST') {
     try {
       // Create Checkout Sessions from body params.

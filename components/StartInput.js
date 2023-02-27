@@ -307,6 +307,7 @@ function StartInput({ setDataToStore, state }) {
             onClick={() => {
               // eslint-disable-next-line no-unused-expressions
               booleanResult ? 
+              // eslint-disable-next-line no-alert
               alert('Peso , Larghezza , Altezzza, Lunghezza sono obbligatori e  massimo di 3 caratteri') :
               onPreventivoButton();
             }}

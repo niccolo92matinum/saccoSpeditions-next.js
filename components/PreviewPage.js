@@ -25,7 +25,7 @@ function PreviewPage({prova,boolean}) {
       // console.log('Order canceled -- continue to shop around and checkout when you’re ready.');
     }
   }, []);
-//form="myform"
+
   return (
     <form  action="/api/checkout_sessions" method="POST">
       
