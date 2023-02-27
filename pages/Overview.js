@@ -6,7 +6,7 @@ import Spedizione from "../components/Spedizione";
 import Riepilogo from "../components/Riepilogo";
 import Nav from "../components/Nav";
 
-function Overview({state}) {
+function Overview({ state }) {
   const [data, setData] = useState({});
 
   const checkIfInputsAreFilled = new Set(
@@ -19,18 +19,18 @@ function Overview({state}) {
 
   const handleObjDispatch = (e, key) => {
     setData({ ...data, ...{ [key]: e.target.value } });
+   
   };
-
 
   return (
     <>
       <Nav />
+  
       <div className="overview-container">
+        
         <Partenza name="Partenza" state={state} handle={handleObjDispatch} />
-        
+
         <Riepilogo state={state} allInfo={data} boolean={boolean} />
-      
-        
       </div>
       <div className="overview-container-spedizione">
         <Spedizione
@@ -38,10 +38,10 @@ function Overview({state}) {
           state={state}
           handle={handleObjDispatch}
           allInfo={data}
-          boolean={boolean} 
+          boolean={boolean}
         />
-        <div className="" />
       </div>
+      
     </>
   );
 }

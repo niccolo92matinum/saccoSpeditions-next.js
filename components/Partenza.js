@@ -1,5 +1,9 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
+
+
 export default function Partenza({ name, state, handle }) {
+
+  
+ 
 
 
   const pickUpDate = new Date();
@@ -14,23 +18,45 @@ export default function Partenza({ name, state, handle }) {
     
   };
 
+  const valdationFunction = (inp, bu) =>{
+    // inp =  input ID 
+    // bu =  button ID
+    const input = document.getElementById(inp);
+    const inputButton =  document.getElementById(bu)
+  
+   
+     input.onkeyup = ( ) => {
+        inputButton.click();        
+    }
+  
+  }
+  
+  const prevent = (e) =>{
+     e.preventDefault()
+  }
+
+  
+  
+
   return (
-    <div className="container-partenza">
+    <div className="container-partenza ">
         <div className="child-container-partenza">
           <h4 className="title-patenzaSpedizione">{name}</h4>
+
           <div className="master-children-partenza">
             <div className="children-partenza">
             
-              <label className="control-label" >
+              <label htmlFor="number" className="control-label" >
                 Ritiro
-              </label>
+             
               <select type="number"  className="form-select" value={state.choiseReducer.tipo} disabled>
                 {renderAuthSelect()}
               </select>
+              </label>
             </div>
             <div className="children-partenza">
              
-              <label htmlFor="start"> Data di ritiro</label>
+              <label htmlFor="start"> Data di ritiro
               <input
                 disabled
                 className="form-select"
@@ -38,76 +64,125 @@ export default function Partenza({ name, state, handle }) {
                 name="date"
                 placeholder={finalPickUpDate}
                 defaultValue={finalPickUpDate || ""}
-                min="1997-01-01"
-                max="2030-12-31"
+               
+               
               />
+            </label>
             </div>
           </div>
           <hr />
           <div className="master-children-partenza">
             <div className="children-partenza">
-              <label className="control-label">Nome</label>
+              <form
+               onSubmit={(e)=>prevent(e)} >
+              <label htmlFor="name" className="control-label">Nome
               <input
+                name="name"
                 placeholder=""
                 className="form-control"
                 defaultValue=""
-                onChange={(e) => handle(e, "nameSender")}
+                id="name"
+                required
+                onChange={(e) => {handle(e, "nameSender");valdationFunction("name","butNa")}}
               />
+              </label>
+              <input type="submit" hidden id="butNa"/>
+              </form>
             </div>
             <div className="children-partenza">
-              <label className="control-label">Cognome</label>
+              <form
+              onSubmit={(e)=>prevent(e)} >
+              <label htmlFor="cognome" className="control-label">Cognome
               <input
                 placeholder=""
+                name="cognome"
                 className="form-control"
-                defaultValue=""
-                onChange={(e) => handle(e, "surnameSender")}
+                required
+                id="cognome"
+                type="text"
+                onChange={(e) => {handle(e, "surnameSender");valdationFunction("cognome","butSur")}}
               />
-            </div>
-          </div>
-
-          <div className="master-children-partenza">
-            <div className="children-partenza">
-              <label className="control-label">Città</label>
-              <input
-                placeholder=""
-                className="form-control"
-                defaultValue=""
-                onChange={(e) => handle(e, "citySender")}
-              />
-            </div>
-            <div className="children-partenza">
-              <label className="control-label">Via</label>
-              <input
-                placeholder=""
-                className="form-control"
-                defaultValue=""
-                onChange={(e) => handle(e, "streetSender")}
-              />
+              </label>
+              <input type="submit" hidden id="butSur"/>
+              </form>
             </div>
           </div>
 
           <div className="master-children-partenza">
             <div className="children-partenza">
-              <label className="control-label">Telefono</label>
+              <form
+              onSubmit={(e)=>prevent(e)} >
+              <label htmlFor="citta" className="control-label">Città
               <input
                 placeholder=""
                 className="form-control"
                 defaultValue=""
-                onChange={(e) => handle(e, "phoneSender")}
+                maxLength="20"
+                required
+                id="citta"
+                type="text"
+                onChange={(e) =>{handle(e, "citySender");valdationFunction("citta","butCit")}}
               />
+              </label>
+              <input type="submit" hidden id="butCit"/>
+              </form>
             </div>
             <div className="children-partenza">
-              <label className="control-label">Email address</label>
+            <form 
+              onSubmit={(e)=>prevent(e)} >
+              <label htmlFor="via" className="control-label">Via
+              <input
+                placeholder=""
+                className="form-control"
+                defaultValue=""
+               id="via"
+               maxLength="20"
+               required
+                onChange={(e) => {handle(e, "streetSender");valdationFunction("via","butVia")}}
+              />
+              </label>
+              <input type="submit" hidden id="butVia"/>
+              </form>
+            </div>
+          </div>
+
+          <div className="master-children-partenza">
+            <div className="children-partenza">
+             <form 
+              onSubmit={(e)=>prevent(e)} >
+              <label htmlFor="tel" className="control-label">Telefono
+              <input
+                type="tel"
+                id="phone" name="phone" 
+                maxLength="10"
+                required
+                className="form-control"
+                onChange={(e) => {handle(e, "phoneSender");valdationFunction("phone","buTel")}}
+              />
+               <input type="submit" hidden id="buTel"/>
+             </label>
+             </form>
+            </div>
+            <div className="children-partenza">
+              <form
+              onSubmit={(e)=>prevent(e)}  
+              >
+              <label className="control-label" htmlFor="email">Email address
               <input
                 type="email"
+                name="firstName"
+                size="30"
+                required
+                id="email"
                 className="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                defaultValue=""
-                onChange={(e) => handle(e, "emailSender")}
+                onChange={(e) => {handle(e, "emailSender");valdationFunction("email","buEmail")}}
               />
+                <input type="submit" hidden id="buEmail"/>
+                </label>
+                </form>
             </div>
           </div>
+       
         </div>
       </div>
   );

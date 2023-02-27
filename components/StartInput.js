@@ -65,11 +65,22 @@ function StartInput({ setDataToStore, state }) {
   if (inputsState === "/AllPlatforms") {
     disableButtonPreventivo = true;
   }
+
+  let checkSizeBox 
+  if(data.peso > 999){
+    checkSizeBox  = true
+  }else if(data.larghezza > 999){
+    checkSizeBox  = true
+  }else if(data.altezza > 999){
+    checkSizeBox  = true
+  }else if(data.lunghezza > 999 ){
+    checkSizeBox  = true
+  }
 // message to show just in case all input are not filled up
   const [errorMessage, setErrorMessage] = useState('');
   const checkIfInputsStringsAreFilled = new Set( Object.values(data).filter(x => x === '')).has('')
   const checkIfInputsNumbersAreFilled = new Set( Object.values(data).filter(x => x === 0)).has(0)
-  const booleanResult =  checkIfInputsStringsAreFilled || checkIfInputsNumbersAreFilled
+  const booleanResult =  checkIfInputsStringsAreFilled || checkIfInputsNumbersAreFilled || checkSizeBox 
 
   const calculatePrice = (dat) => {
     // _______TIPO______
@@ -122,7 +133,7 @@ function StartInput({ setDataToStore, state }) {
   function onPreventivoButton() {
 
     if(booleanResult){
-      setErrorMessage('Inserisci tutti i campie e richiedi il Preventivo!');
+      setErrorMessage('Inserisci correttamente tutti i campi e richiedi il Preventivo!');
     }else{
       const prezzo = calculatePrice(data);
       const newData = data
@@ -134,6 +145,27 @@ function StartInput({ setDataToStore, state }) {
 
   
   }
+ 
+
+
+  const valdationFunction = (inp, bu) =>{
+    // inp =  input ID 
+    // bu =  button ID
+    const input = document.getElementById(inp);
+    const inputButton =  document.getElementById(bu)
+  
+   
+     input.onkeyup = ( ) => {
+        inputButton.click();        
+    }
+    
+  
+  }
+  
+  const prevent = (e) =>{
+     e.preventDefault()
+     
+  }
 
  
 
@@ -144,14 +176,19 @@ function StartInput({ setDataToStore, state }) {
     <div className="mainPartDesc">
    
       <div className="form-group col-md-4 partDesc">
-        <label className="control-label">Partenza</label>
+      
+        <label  className="control-label">Partenza</label>
         <input
           disabled={disableButtonPreventivo}
           placeholder="CAP o città"
+          
           className="form-control output"
+          maxLength="25"
           value={routeAtMoment !== "/AllPlatforms" ? undefined:state.dataReducer.partenza  }
           onChange={(e) =>{handlePartenza(e)}}
         />
+      
+    
       </div>
      
       <div className="form-group col-md-4 partDesc dest">
@@ -160,6 +197,7 @@ function StartInput({ setDataToStore, state }) {
           disabled={disableButtonPreventivo}
           placeholder="CAP o città"
           className="form-control"
+          maxLength="25"
           value={routeAtMoment === "/AllPlatforms" ? state.dataReducer.destinazione : undefined}
           onChange={(e) => handleDestinazione(e)}
         />
@@ -184,48 +222,77 @@ function StartInput({ setDataToStore, state }) {
       </div>
 
       <div className="form-group singleDiv peso ">
-        <label className="control-label">Peso</label>
+        <form onSubmit={(e)=>prevent(e)}>
+        <label htmlFor="pesoP" className="control-label">Peso</label>
         <input
           disabled={disableButtonPreventivo}
           type="number"
+          id="pesoP"
+          min="1"
+          max="999"
           placeholder="Kg"
           className="form-control "
           value={routeAtMoment === "/AllPlatforms" ? state.dataReducer.peso : undefined}
-          onChange={(e) => handlePeso(e)}
+          onChange={(e) => {handlePeso(e);valdationFunction("pesoP","buPes")}}
+          
         />
+          <input type="submit" hidden id="buPes"/>
+        </form>
       </div>
       <div className="form-group  singleDiv larghezza">
-        <label className="control-label">Larghezza</label>
+        <form onSubmit={(e)=>prevent(e)}>
+        <label htmlFor="larghezzaI" className="control-label">Larghezza</label>
         <input
-          disabled={disableButtonPreventivo}
+          id="larghezzaI"
+          min="1"
+          max="999"
           type="number"
+          required
+          disabled={disableButtonPreventivo}
           placeholder="cm"
           className="form-control"
           value={routeAtMoment === "/AllPlatforms" ? state.dataReducer.larghezza : undefined}
-          onChange={(e) => handleLarghezza(e)}
+          onChange={(e) => {handleLarghezza(e);valdationFunction("larghezzaI","buLar")}}
+         
         />
+         <input type="submit" hidden id="buLar"/>
+        </form>
       </div>
       <div className="form-group  singleDiv altezza">
-        <label className="control-label">Altezza</label>
+        <form onSubmit={(e)=>prevent(e)}>
+        <label htmlFor="altezzaI" className="control-label">Altezza</label>
         <input
+           id="altezzaI"
+           min="1"
+           max="999"
+           type="number"
+           required
           disabled={disableButtonPreventivo}
-          type="number"
           placeholder="cm"
           className="form-control"
           value={routeAtMoment === "/AllPlatforms" ? state.dataReducer.altezza : undefined}
-          onChange={(e) => handleAltezza(e)}
+          onChange={(e) => {handleAltezza(e);valdationFunction("altezzaI","buAl")}}
         />
+        <input type="submit" hidden id="buAl"/>
+        </form>
       </div>
       <div className="form-group  singleDiv lunghezza">
-        <label className="control-label">Lunghezza</label>
+        <form onSubmit={(e)=>prevent(e)}>
+        <label  htmlFor="lungI" className="control-label">Lunghezza</label>
         <input
           disabled={disableButtonPreventivo}
+          id="lungI"
+          min="1"
+          max="999"
           type="number"
+          required
           placeholder="cm"
           className="form-control"
           value={routeAtMoment === "/AllPlatforms" ? state.dataReducer.lunghezza : undefined}
-          onChange={(e) => handleLunghezza(e)}
+          onChange={(e) => {handleLunghezza(e);valdationFunction("lungI","buLu")}}
         />
+        <input type="submit" hidden id="buLu"/>
+        </form>
       </div>
     </div>
 
@@ -238,6 +305,9 @@ function StartInput({ setDataToStore, state }) {
             role="button"
             className=" button-start"
             onClick={() => {
+              // eslint-disable-next-line no-unused-expressions
+              booleanResult ? 
+              alert('Peso , Larghezza , Altezzza, Lunghezza sono obbligatori e  massimo di 3 caratteri') :
               onPreventivoButton();
             }}
           >

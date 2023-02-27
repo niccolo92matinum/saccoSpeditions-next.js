@@ -24,13 +24,11 @@ function Riepilogo({ state, allInfo, setDataToStore,boolean }) {
 
   const sendToBackAllData = () => {
     // inserisco tutti i dati nello store
-    
+ 
       const x = setDataToStore(allInfo);
       // faccio una POST
       sendAllParameter({ ...state, ...{ partenzaSpedizioneReducer: x.payload } });
-    
-    
-
+ 
   };
 
   return (
@@ -88,7 +86,7 @@ function Riepilogo({ state, allInfo, setDataToStore,boolean }) {
           </div>
         </div>
         <div className="container-button">
-   <button onClick={()=>{sendToBackAllData()}}>vai</button>
+
    <PreviewPage prova={sendToBackAllData} boolean={boolean} />
     
     </div>
