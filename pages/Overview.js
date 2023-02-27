@@ -17,20 +17,26 @@ function Overview({ state }) {
 
   const boolean = !checkIfInputsAreFilled && checkIfInputsAreeAllPresent;
 
+
+
   const handleObjDispatch = (e, key) => {
+   
     setData({ ...data, ...{ [key]: e.target.value } });
    
   };
 
+
+ 
+
   return (
     <>
       <Nav />
-  
+      <form id="myform" action="/api/checkout_sessions" method="POST">
       <div className="overview-container">
-        
+      
         <Partenza name="Partenza" state={state} handle={handleObjDispatch} />
 
-        <Riepilogo state={state} allInfo={data} boolean={boolean} />
+        <Riepilogo state={state} allInfo={data} boolean={boolean}  />
       </div>
       <div className="overview-container-spedizione">
         <Spedizione
@@ -39,9 +45,11 @@ function Overview({ state }) {
           handle={handleObjDispatch}
           allInfo={data}
           boolean={boolean}
+         
         />
-      </div>
       
+      </div>
+      </form>
     </>
   );
 }

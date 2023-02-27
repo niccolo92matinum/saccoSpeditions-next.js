@@ -3,7 +3,7 @@ import PreviewPage from "./PreviewPage";
 
 
 // eslint-disable-next-line react/prop-types
-function Riepilogo({ state, allInfo, setDataToStore,boolean }) {
+function Riepilogo({ state, allInfo, setDataToStore,boolean}) {
 
 
   const pickUpDate = new Date();

@@ -14,6 +14,7 @@ function PreviewPage({prova,boolean}) {
 
 
 
+
   React.useEffect(() => {
     // Check to see if this is a redirect back from Checkout
     const query = new URLSearchParams(window.location.search);
@@ -27,9 +28,9 @@ function PreviewPage({prova,boolean}) {
   }, []);
 
   return (
-    <form  action="/api/checkout_sessions" method="POST">
-      
-        <button  type="submit"  role="link" onClick={()=>{prova()}} disabled={!boolean}>
+   // <form  action="/api/checkout_sessions" method="POST">
+      <div>
+        <button form="myform"  type="submit"  role="link" onClick={()=> prova()} disabled={!boolean}>
         PAGA
         </button>
         
@@ -88,7 +89,8 @@ function PreviewPage({prova,boolean}) {
           }
         `}
       </style>
-    </form>
+      </div>
+   // </form>
   );
 }
 

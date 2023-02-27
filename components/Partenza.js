@@ -18,22 +18,7 @@ export default function Partenza({ name, state, handle }) {
     
   };
 
-  const valdationFunction = (inp, bu) =>{
-    // inp =  input ID 
-    // bu =  button ID
-    const input = document.getElementById(inp);
-    const inputButton =  document.getElementById(bu)
-  
-   
-     input.onkeyup = ( ) => {
-        inputButton.click();        
-    }
-  
-  }
-  
-  const prevent = (e) =>{
-     e.preventDefault()
-  }
+ 
 
   
   
@@ -73,8 +58,7 @@ export default function Partenza({ name, state, handle }) {
           <hr />
           <div className="master-children-partenza">
             <div className="children-partenza">
-              <form
-               onSubmit={(e)=>prevent(e)} >
+           
               <label htmlFor="name" className="control-label">Nome
               <input
                 name="name"
@@ -83,15 +67,13 @@ export default function Partenza({ name, state, handle }) {
                 defaultValue=""
                 id="name"
                 required
-                onChange={(e) => {handle(e, "nameSender");valdationFunction("name","butNa")}}
+                onChange={(e) => {handle(e, "nameSender")}}
               />
               </label>
-              <input type="submit" hidden id="butNa"/>
-              </form>
+             
             </div>
             <div className="children-partenza">
-              <form
-              onSubmit={(e)=>prevent(e)} >
+             
               <label htmlFor="cognome" className="control-label">Cognome
               <input
                 placeholder=""
@@ -100,18 +82,16 @@ export default function Partenza({ name, state, handle }) {
                 required
                 id="cognome"
                 type="text"
-                onChange={(e) => {handle(e, "surnameSender");valdationFunction("cognome","butSur")}}
+                onChange={(e) => {handle(e, "surnameSender")}}
               />
               </label>
-              <input type="submit" hidden id="butSur"/>
-              </form>
+             
             </div>
           </div>
 
           <div className="master-children-partenza">
             <div className="children-partenza">
-              <form
-              onSubmit={(e)=>prevent(e)} >
+             
               <label htmlFor="citta" className="control-label">Città
               <input
                 placeholder=""
@@ -121,15 +101,13 @@ export default function Partenza({ name, state, handle }) {
                 required
                 id="citta"
                 type="text"
-                onChange={(e) =>{handle(e, "citySender");valdationFunction("citta","butCit")}}
+                onChange={(e) =>{handle(e, "citySender")}}
               />
               </label>
-              <input type="submit" hidden id="butCit"/>
-              </form>
+              
             </div>
             <div className="children-partenza">
-            <form 
-              onSubmit={(e)=>prevent(e)} >
+         
               <label htmlFor="via" className="control-label">Via
               <input
                 placeholder=""
@@ -138,48 +116,42 @@ export default function Partenza({ name, state, handle }) {
                id="via"
                maxLength="20"
                required
-                onChange={(e) => {handle(e, "streetSender");valdationFunction("via","butVia")}}
+                onChange={(e) => {handle(e, "streetSender")}}
               />
               </label>
-              <input type="submit" hidden id="butVia"/>
-              </form>
+            
             </div>
           </div>
 
           <div className="master-children-partenza">
             <div className="children-partenza">
-             <form 
-              onSubmit={(e)=>prevent(e)} >
+            
               <label htmlFor="tel" className="control-label">Telefono
               <input
-                type="tel"
-                id="phone" name="phone" 
-                maxLength="10"
                 required
+                type="tel" id="phone" name="phone"
+                pattern="[0-9]{10}"
                 className="form-control"
-                onChange={(e) => {handle(e, "phoneSender");valdationFunction("phone","buTel")}}
+                onChange={(e) => {handle(e, "phoneSender")}}
               />
-               <input type="submit" hidden id="buTel"/>
+             
              </label>
-             </form>
+            
             </div>
             <div className="children-partenza">
-              <form
-              onSubmit={(e)=>prevent(e)}  
-              >
+            
               <label className="control-label" htmlFor="email">Email address
               <input
                 type="email"
                 name="firstName"
-                size="30"
                 required
                 id="email"
                 className="form-control"
-                onChange={(e) => {handle(e, "emailSender");valdationFunction("email","buEmail")}}
+                onChange={(e) => {handle(e, "emailSender")}}
               />
-                <input type="submit" hidden id="buEmail"/>
+              
                 </label>
-                </form>
+                
             </div>
           </div>
        
