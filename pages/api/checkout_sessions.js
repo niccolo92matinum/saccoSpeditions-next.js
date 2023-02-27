@@ -4,10 +4,19 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 export  const parameter = []
 
+function resolveAfter2Seconds() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(parameter[0])
+    }, 2000);
+  });
+}
+
 export default async function handler(req, res) {
 
-  
-const priceToSend = parameter[0]
+ 
+  const result = await resolveAfter2Seconds();
+ 
 
 
   if (req.method === 'POST') {
@@ -22,7 +31,7 @@ const priceToSend = parameter[0]
               product_data:{
                 name:'Your spedition price'
               },
-              unit_amount:priceToSend
+              unit_amount:result
             },
             quantity: 1,
           },
