@@ -21,35 +21,35 @@ function StartInput({ setDataToStore, state }) {
   
 
     const handlePartenza = (e) => {
-      setData({ ...data, ...{ partenza: e.target.value } });
+      setData({ ...data, partenza: e.target.value});
     };
 
   const handleTipo = (e) => {
 
-    setData({ ...data, ...{ tipo: Number(e.target.value) } });
+    setData({ ...data, tipo: Number(e.target.value)});
   };
 
   const handlePeso = (e) => {
-    setData({ ...data, ...{ peso: Number(e.target.value) } });
+    setData({ ...data, peso: Number(e.target.value)});
   };
 
   const handleLarghezza = (e) => {
-    setData({ ...data, ...{ larghezza: Number(e.target.value) } });
+    setData({ ...data, larghezza: Number(e.target.value)});
   };
 
   const handleAltezza = (e) => {
-    setData({ ...data, ...{ altezza: Number(e.target.value) } });
+    setData({ ...data, altezza: Number(e.target.value)});
   };
 
   const handleLunghezza = (e) => {
-    setData({ ...data, ...{ lunghezza: Number(e.target.value) } });
+    setData({ ...data, lunghezza: Number(e.target.value)});
   };
 
   
 
   const handleDestinazione = (e) => {
     
-    setData({ ...data, ...{ destinazione: e.target.value } });
+    setData({...data, destinazione: e.target.value  });
   };
 
   const router = useRouter();
@@ -146,30 +146,6 @@ function StartInput({ setDataToStore, state }) {
   
   }
  
-
-
-  const valdationFunction = (inp, bu) =>{
-    // inp =  input ID 
-    // bu =  button ID
-    const input = document.getElementById(inp);
-    const inputButton =  document.getElementById(bu)
-  
-   
-     input.onkeyup = ( ) => {
-        inputButton.click();        
-    }
-    
-  
-  }
-  
-  const prevent = (e) =>{
-     e.preventDefault()
-     
-  }
-
- 
-
-
   return (
     <div className="masterContainer">
  
@@ -181,7 +157,6 @@ function StartInput({ setDataToStore, state }) {
         <input
           disabled={disableButtonPreventivo}
           placeholder="CAP o città"
-          
           className="form-control output"
           maxLength="25"
           value={routeAtMoment !== "/AllPlatforms" ? undefined:state.dataReducer.partenza  }
@@ -222,77 +197,68 @@ function StartInput({ setDataToStore, state }) {
       </div>
 
       <div className="form-group singleDiv peso ">
-        <form onSubmit={(e)=>prevent(e)}>
+       
         <label htmlFor="pesoP" className="control-label">Peso</label>
         <input
           disabled={disableButtonPreventivo}
           type="number"
-          id="pesoP"
-          min="1"
-          max="999"
           placeholder="Kg"
           className="form-control "
           value={routeAtMoment === "/AllPlatforms" ? state.dataReducer.peso : undefined}
-          onChange={(e) => {handlePeso(e);valdationFunction("pesoP","buPes")}}
+          onChange={(e) => handlePeso(e)}
           
         />
-          <input type="submit" hidden id="buPes"/>
-        </form>
+   
+  
       </div>
       <div className="form-group  singleDiv larghezza">
-        <form onSubmit={(e)=>prevent(e)}>
+   
         <label htmlFor="larghezzaI" className="control-label">Larghezza</label>
         <input
           id="larghezzaI"
-          min="1"
-          max="999"
           type="number"
           required
           disabled={disableButtonPreventivo}
           placeholder="cm"
           className="form-control"
           value={routeAtMoment === "/AllPlatforms" ? state.dataReducer.larghezza : undefined}
-          onChange={(e) => {handleLarghezza(e);valdationFunction("larghezzaI","buLar")}}
+          onChange={(e) => handleLarghezza(e)}
          
         />
-         <input type="submit" hidden id="buLar"/>
-        </form>
+        
+
       </div>
       <div className="form-group  singleDiv altezza">
-        <form onSubmit={(e)=>prevent(e)}>
+       
         <label htmlFor="altezzaI" className="control-label">Altezza</label>
         <input
            id="altezzaI"
-           min="1"
-           max="999"
            type="number"
            required
           disabled={disableButtonPreventivo}
           placeholder="cm"
           className="form-control"
           value={routeAtMoment === "/AllPlatforms" ? state.dataReducer.altezza : undefined}
-          onChange={(e) => {handleAltezza(e);valdationFunction("altezzaI","buAl")}}
+          onChange={(e) => {handleAltezza(e)}}
         />
-        <input type="submit" hidden id="buAl"/>
-        </form>
+  
+   
       </div>
       <div className="form-group  singleDiv lunghezza">
-        <form onSubmit={(e)=>prevent(e)}>
+      
         <label  htmlFor="lungI" className="control-label">Lunghezza</label>
         <input
           disabled={disableButtonPreventivo}
           id="lungI"
-          min="1"
-          max="999"
           type="number"
           required
           placeholder="cm"
           className="form-control"
           value={routeAtMoment === "/AllPlatforms" ? state.dataReducer.lunghezza : undefined}
-          onChange={(e) => {handleLunghezza(e);valdationFunction("lungI","buLu")}}
+          onChange={(e) => handleLunghezza(e)}
         />
-        <input type="submit" hidden id="buLu"/>
-        </form>
+
+ 
       </div>
     </div>
 
