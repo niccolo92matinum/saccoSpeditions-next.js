@@ -15,7 +15,7 @@ export  const parameter = []
 export default async function handler(req, res) {
 
  
-  // const result = await resolveAfter2Seconds();
+   const result = await parameter[0];
  
 
   
@@ -32,7 +32,7 @@ export default async function handler(req, res) {
               product_data:{
                 name:'Your spedition price'
               },
-              unit_amount:parameter[0]
+              unit_amount:result
             },
             quantity: 1,
           },
