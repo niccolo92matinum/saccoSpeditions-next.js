@@ -1,7 +1,5 @@
 import { connect } from "react-redux";
-import { useState } from "react";
-// eslint-disable-next-line import/named
-import React from 'react';
+import { useState , useEffect} from "react";
 import { loadStripe } from '@stripe/stripe-js';
 import Partenza from "../components/Partenza";
 import Spedizione from "../components/Spedizione";
@@ -22,7 +20,7 @@ const stripePromise = loadStripe(
 function Overview({ state }) {
 
 
-  React.useEffect(() => {
+useEffect(() => {
     // Check to see if this is a redirect back from Checkout
     const query = new URLSearchParams(window.location.search);
     if (query.get('success')) {

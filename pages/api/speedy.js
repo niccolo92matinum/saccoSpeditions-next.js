@@ -73,7 +73,7 @@ let price =  calculatePrice(dat.dataReducer)*100
   
     
      res.status(201).json(parameter)
-     return parameter
+    
     }
    
      
