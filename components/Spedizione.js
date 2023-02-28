@@ -1,7 +1,6 @@
 
 import { connect } from "react-redux";
 
-import { useForm } from "react-hook-form";
 import PreviewPage from "./PreviewPage";
 
 function Spedizione({ name, state, handle, boolean, allInfo, setDataToStore }) {

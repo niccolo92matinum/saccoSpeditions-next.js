@@ -18,6 +18,7 @@ export default async function handler(req, res) {
   const result = await resolveAfter2Seconds();
  
 
+  if(result){
 
   if (req.method === 'POST') {
     try {
@@ -48,4 +49,5 @@ export default async function handler(req, res) {
     res.setHeader('Allow', 'POST');
     res.status(405).end('Method Not Allowed');
   }
+}
 }
