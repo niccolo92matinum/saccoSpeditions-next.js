@@ -66,24 +66,6 @@ function StartInput({ setDataToStore, state }) {
     disableButtonPreventivo = true;
   }
 
-  let checkSizeBox 
-  if(data.peso > 999){
-    checkSizeBox  = true
-  }else if(data.larghezza > 999){
-    checkSizeBox  = true
-  }else if(data.altezza > 999){
-    checkSizeBox  = true
-  }else if(data.lunghezza > 999 ){
-    checkSizeBox  = true
-  }
-// message to show just in case all input are not filled up
-  const [errorMessage, setErrorMessage] = useState('');
-// const checkIfInputsStringsAreFilled = new Set( Object.values(data).filter(x => x === '')).has('')
-  // const checkIfInputsNumbersAreFilled = new Set( Object.values(data).filter(x => x === 0)).has(0)
-  // const checkIfNegativeOnInput = new Set( Object.values(data).filter(x => typeof(x) === 'number').map(x => x < 0)).has(true)
-
-
-  //const booleanResult =  checkIfInputsStringsAreFilled || checkIfInputsNumbersAreFilled || checkSizeBox||checkIfNegativeOnInput 
 
   const calculatePrice = (dat) => {
     // _______TIPO______
@@ -167,6 +149,7 @@ function StartInput({ setDataToStore, state }) {
           disabled={disableButtonPreventivo}
           placeholder="CAP o città"
           className="form-control output"
+          required
           minLength='3'
           maxLength="25"
           value={routeAtMoment !== "/AllPlatforms" ? undefined:state.dataReducer.partenza  }
@@ -182,6 +165,7 @@ function StartInput({ setDataToStore, state }) {
           disabled={disableButtonPreventivo}
           placeholder="CAP o città"
           className="form-control"
+          required
           minLength='3'
           maxLength="25"
           value={routeAtMoment === "/AllPlatforms" ? state.dataReducer.destinazione : undefined}
@@ -216,6 +200,7 @@ function StartInput({ setDataToStore, state }) {
           type="number"
           placeholder="Kg"
           className="form-control "
+          required
           min="1"
           value={routeAtMoment === "/AllPlatforms" ? state.dataReducer.peso : undefined}
           onChange={(e) => handlePeso(e)}
@@ -289,7 +274,7 @@ function StartInput({ setDataToStore, state }) {
             className=" button-start"
           
           >
-                     {errorMessage || 'Preventivo'}
+                     'Preventivo'
           </button>
         )}
 
