@@ -78,9 +78,12 @@ function StartInput({ setDataToStore, state }) {
   }
 // message to show just in case all input are not filled up
   const [errorMessage, setErrorMessage] = useState('');
-  const checkIfInputsStringsAreFilled = new Set( Object.values(data).filter(x => x === '')).has('')
-  const checkIfInputsNumbersAreFilled = new Set( Object.values(data).filter(x => x === 0)).has(0)
-  const booleanResult =  checkIfInputsStringsAreFilled || checkIfInputsNumbersAreFilled || checkSizeBox 
+// const checkIfInputsStringsAreFilled = new Set( Object.values(data).filter(x => x === '')).has('')
+  // const checkIfInputsNumbersAreFilled = new Set( Object.values(data).filter(x => x === 0)).has(0)
+  // const checkIfNegativeOnInput = new Set( Object.values(data).filter(x => typeof(x) === 'number').map(x => x < 0)).has(true)
+
+
+  //const booleanResult =  checkIfInputsStringsAreFilled || checkIfInputsNumbersAreFilled || checkSizeBox||checkIfNegativeOnInput 
 
   const calculatePrice = (dat) => {
     // _______TIPO______
@@ -130,26 +133,32 @@ function StartInput({ setDataToStore, state }) {
   };
 
 
-  function onPreventivoButton() {
+  function onPreventivoButton(e) {
 
-    if(booleanResult){
-      setErrorMessage('Inserisci correttamente tutti i campi e richiedi il Preventivo!');
-    }else{
+
+    e.preventDefault();
+
+  
       const prezzo = calculatePrice(data);
       const newData = data
 
       setDataToStore({ ...newData, prezzo });
   
       handleGoToAllPlatforms();
-    }
+    
 
   
   }
  
   return (
+  
     <div className="masterContainer">
- 
+ <form id='Main-preventivo' onSubmit={(e) => {
+
+      onPreventivoButton(e);
+    }}>
     <div className="mainPartDesc">
+
    
       <div className="form-group col-md-4 partDesc">
       
@@ -158,6 +167,7 @@ function StartInput({ setDataToStore, state }) {
           disabled={disableButtonPreventivo}
           placeholder="CAP o città"
           className="form-control output"
+          minLength='3'
           maxLength="25"
           value={routeAtMoment !== "/AllPlatforms" ? undefined:state.dataReducer.partenza  }
           onChange={(e) =>{handlePartenza(e)}}
@@ -172,6 +182,7 @@ function StartInput({ setDataToStore, state }) {
           disabled={disableButtonPreventivo}
           placeholder="CAP o città"
           className="form-control"
+          minLength='3'
           maxLength="25"
           value={routeAtMoment === "/AllPlatforms" ? state.dataReducer.destinazione : undefined}
           onChange={(e) => handleDestinazione(e)}
@@ -185,6 +196,7 @@ function StartInput({ setDataToStore, state }) {
         <select
           disabled={disableButtonPreventivo}
           type="number"
+          min="1"
           className="form-select"
           value={routeAtMoment === "/AllPlatforms" ? state.dataReducer.tipo : undefined}
           onChange={(e) => handleTipo(e)}
@@ -204,12 +216,12 @@ function StartInput({ setDataToStore, state }) {
           type="number"
           placeholder="Kg"
           className="form-control "
+          min="1"
           value={routeAtMoment === "/AllPlatforms" ? state.dataReducer.peso : undefined}
           onChange={(e) => handlePeso(e)}
           
         />
    
-  
       </div>
       <div className="form-group  singleDiv larghezza">
    
@@ -217,6 +229,7 @@ function StartInput({ setDataToStore, state }) {
         <input
           id="larghezzaI"
           type="number"
+          min="1"
           required
           disabled={disableButtonPreventivo}
           placeholder="cm"
@@ -234,6 +247,7 @@ function StartInput({ setDataToStore, state }) {
         <input
            id="altezzaI"
            type="number"
+           min="1"
            required
           disabled={disableButtonPreventivo}
           placeholder="cm"
@@ -250,6 +264,7 @@ function StartInput({ setDataToStore, state }) {
         <input
           disabled={disableButtonPreventivo}
           id="lungI"
+          min="1"
           type="number"
           required
           placeholder="cm"
@@ -258,32 +273,28 @@ function StartInput({ setDataToStore, state }) {
           onChange={(e) => handleLunghezza(e)}
         />
 
- 
+
       </div>
     </div>
-
+</form>
     <div className="mainButton">
       <div className="preventivo">
         {!disableButtonPreventivo && (
           // eslint-disable-next-line jsx-a11y/no-redundant-roles
           <button
+          form='Main-preventivo'
+            type='submit'
             disabled={disableButtonPreventivo}
             role="button"
             className=" button-start"
-            onClick={() => {
-              // eslint-disable-next-line no-unused-expressions
-              booleanResult ? 
-              // eslint-disable-next-line no-alert
-              alert('Peso , Larghezza , Altezzza, Lunghezza sono obbligatori e  massimo di 3 caratteri') :
-              onPreventivoButton();
-            }}
+          
           >
                      {errorMessage || 'Preventivo'}
           </button>
         )}
 
       </div>
-    
+     
      
     </div>
 
