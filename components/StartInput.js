@@ -4,23 +4,18 @@ import { connect } from "react-redux";
 import { useRouter } from "next/router";
 
 function StartInput({ setDataToStore, state }) {
+ 
   const [data, setData] = useState({
-    partenza: "",
-    destinazione: "",
-    tipo: 1,
-    peso: 0,
-    larghezza: 0,
-    altezza: 0,
-    lunghezza: 0,
+   
   });
 
-  /*
- 
-  */
 
   
 
+
     const handlePartenza = (e) => {
+     
+   
       setData({ ...data, partenza: e.target.value});
     };
 
@@ -56,9 +51,10 @@ function StartInput({ setDataToStore, state }) {
   const handleGoToAllPlatforms = () => {
     router.push("/AllPlatforms");
   };
-  const routeAtMoment = router.route 
 
 
+
+ 
   // eslint-disable-next-line no-unused-vars
   const [inputsState, setInputsState] = useState(router.route);
   let disableButtonPreventivo = false;
@@ -119,18 +115,30 @@ function StartInput({ setDataToStore, state }) {
 
 
     e.preventDefault();
-
-  
+     
+     if(Object.keys(state.dataReducer).length === 0){
       const prezzo = calculatePrice(data);
       const newData = data
 
       setDataToStore({ ...newData, prezzo });
   
       handleGoToAllPlatforms();
+     }else{
+      const oldAndNewData = {...state.dataReducer,...data}
+      const prezzo = calculatePrice(oldAndNewData);
+      
+
+      setDataToStore({ ...oldAndNewData, prezzo });
+
+      handleGoToAllPlatforms();
+     }
+      
     
 
   
   }
+
+
  
   return (
   
@@ -152,7 +160,7 @@ function StartInput({ setDataToStore, state }) {
           required
           minLength='3'
           maxLength="25"
-          value={routeAtMoment !== "/AllPlatforms" ? undefined:state.dataReducer.partenza  }
+          defaultValue={Object.keys(state.dataReducer).length !== 0 && state.dataReducer.partenza ||data.partenza}
           onChange={(e) =>{handlePartenza(e)}}
         />
       
@@ -168,7 +176,7 @@ function StartInput({ setDataToStore, state }) {
           required
           minLength='3'
           maxLength="25"
-          value={routeAtMoment === "/AllPlatforms" ? state.dataReducer.destinazione : undefined}
+          defaultValue={Object.keys(state.dataReducer).length !== 0 && state.dataReducer.destinazione ||data.destinazione}
           onChange={(e) => handleDestinazione(e)}
         />
       </div>
@@ -182,7 +190,7 @@ function StartInput({ setDataToStore, state }) {
           type="number"
           min="1"
           className="form-select"
-          value={routeAtMoment === "/AllPlatforms" ? state.dataReducer.tipo : undefined}
+          defaultValue={Object.keys(state.dataReducer).length !== 0&& state.dataReducer.tipo ||data.tipo}
           onChange={(e) => handleTipo(e)}
         >
           
@@ -202,7 +210,7 @@ function StartInput({ setDataToStore, state }) {
           className="form-control "
           required
           min="1"
-          value={routeAtMoment === "/AllPlatforms" ? state.dataReducer.peso : undefined}
+          defaultValue={Object.keys(state.dataReducer).length !== 0 && state.dataReducer.peso ||data.peso}
           onChange={(e) => handlePeso(e)}
           
         />
@@ -219,7 +227,7 @@ function StartInput({ setDataToStore, state }) {
           disabled={disableButtonPreventivo}
           placeholder="cm"
           className="form-control"
-          value={routeAtMoment === "/AllPlatforms" ? state.dataReducer.larghezza : undefined}
+          defaultValue={Object.keys(state.dataReducer).length !== 0 && state.dataReducer.larghezza ||data.larghezza}
           onChange={(e) => handleLarghezza(e)}
          
         />
@@ -237,7 +245,7 @@ function StartInput({ setDataToStore, state }) {
           disabled={disableButtonPreventivo}
           placeholder="cm"
           className="form-control"
-          value={routeAtMoment === "/AllPlatforms" ? state.dataReducer.altezza : undefined}
+          defaultValue={Object.keys(state.dataReducer).length !== 0 && state.dataReducer.altezza ||data.altezza}
           onChange={(e) => {handleAltezza(e)}}
         />
   
@@ -254,7 +262,7 @@ function StartInput({ setDataToStore, state }) {
           required
           placeholder="cm"
           className="form-control"
-          value={routeAtMoment === "/AllPlatforms" ? state.dataReducer.lunghezza : undefined}
+          defaultValue={Object.keys(state.dataReducer).length !== 0 && state.dataReducer.lunghezza ||data.lunghezza}
           onChange={(e) => handleLunghezza(e)}
         />
 
@@ -265,6 +273,7 @@ function StartInput({ setDataToStore, state }) {
     <div className="mainButton">
       <div className="preventivo">
         {!disableButtonPreventivo && (
+        
           // eslint-disable-next-line jsx-a11y/no-redundant-roles
           <button
           form='Main-preventivo'

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import PreviewPage from "./PreviewPage";
 
-function Spedizione({ name, state, handle, boolean, allInfo, setDataToStore }) {
+function Spedizione({ name, state, handle}) {
   const renderAuthSelect = () => {
     if (state.choiseReducer.nome === "DHL") {
       return <option>Spedizione a Domicilio</option>;
@@ -14,30 +14,14 @@ function Spedizione({ name, state, handle, boolean, allInfo, setDataToStore }) {
   const pickUpDate = new Date();
   pickUpDate.setDate(pickUpDate.getDate() + 1);
 
-  const sendAllParameter = async (store) => {
-    const response = await fetch("/api/speedy", {
-      method: "POST",
-      body: JSON.stringify(store),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
 
-    await response.json();
-  };
 
-  const sendToBackAllData = () => {
-    // inserisco tutti i dati nello store
-
-    const x = setDataToStore(allInfo);
-    // faccio una POST
-    sendAllParameter({ ...state, partenzaSpedizioneReducer: x.payload });
-  };
 
 
 
 
   return (
+ 
     <div className="container-spedizione">
       <div className="child-container-partenza">
         <h4 className="title-patenzaSpedizione">{name}</h4>
@@ -171,11 +155,15 @@ function Spedizione({ name, state, handle, boolean, allInfo, setDataToStore }) {
            
           </div>
         </div>
+       
         <div className="container-button fullscreen-hidden">
-          <PreviewPage prova={sendToBackAllData} boolean={boolean} />
+          <PreviewPage  />
+          
         </div>
       </div>
+     
     </div>
+    
   );
 }
 

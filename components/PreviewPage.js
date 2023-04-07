@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 
 
 
-function PreviewPage({prova,boolean}) {
+function PreviewPage() {
 
 
 
@@ -14,8 +14,9 @@ function PreviewPage({prova,boolean}) {
 
   return (
    // <form  action="/api/checkout_sessions" method="POST">
+  
       <div>
-        <button form="myform"  type="submit"  role="link" onClick={()=> prova()} disabled={!boolean}>
+        <button form="myform"  type="submit"  role="link" >
         PAGA
         </button>
         
@@ -80,8 +81,6 @@ function PreviewPage({prova,boolean}) {
 }
 
 
-const mapStateToProps = (state) =>({
-  state
-})
 
-export default connect(mapStateToProps,null)(PreviewPage)
+
+export default connect(null,null)(PreviewPage)

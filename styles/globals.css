@@ -551,3 +551,12 @@ display: block;
     display: none;
   }
 }
+
+.button-overview-homePage{
+  position: absolute;
+    top: 50%;
+    right: 43%;
+   
+    width: 200px;
+  
+}

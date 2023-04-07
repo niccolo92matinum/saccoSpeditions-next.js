@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import Nav from "../components/Nav";
 
+
 import PlatformCard from "../components/PlatformCard";
 
 // eslint-disable-next-line import/named
@@ -39,6 +40,9 @@ function AllPlatforms({ state }) {
 
     return consegnaStimata;
   });
+
+
+ 
 
  
 

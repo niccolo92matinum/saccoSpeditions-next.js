@@ -31,7 +31,10 @@ function Riepilogo({ state, allInfo, setDataToStore,boolean}) {
  
   };
 
+
+
   return (
+  
     <div className="container-riepilogo hideOnMobile">
       <div className="child-container-riepilogo">
       
@@ -86,8 +89,8 @@ function Riepilogo({ state, allInfo, setDataToStore,boolean}) {
           </div>
         </div>
         <div className="container-button">
-
-   <PreviewPage prova={sendToBackAllData} boolean={boolean} />
+      
+        <PreviewPage prova={sendToBackAllData} boolean={boolean} />
     
     </div>
        
@@ -95,6 +98,8 @@ function Riepilogo({ state, allInfo, setDataToStore,boolean}) {
     </div>
     
     
+
+   
   );
 }
 
