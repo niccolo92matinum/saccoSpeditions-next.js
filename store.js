@@ -47,4 +47,4 @@ const makeStore = () => {
 
 
 
-export default createWrapper(makeStore, { debug: devMode });
+export default  createWrapper(makeStore, { debug: devMode });
