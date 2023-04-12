@@ -3,7 +3,7 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 export const parameter = [];
 
 export default async function handler(req, res) {
-  const result = await parameter[0] * 100;
+  const result = await parameter.slice(-1) * 100;
  
 
   if (req.method === "POST") {
