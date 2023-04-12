@@ -1,9 +1,3 @@
-// import { configureStore } from '@reduxjs/toolkit'
-
-// eslint-disable-next-line import/prefer-default-export
-/* export const store = configureStore({
-  reducer: {},
-}) */
 import { createWrapper } from 'next-redux-wrapper';
 
 import {applyMiddleware, createStore, compose } from "redux";

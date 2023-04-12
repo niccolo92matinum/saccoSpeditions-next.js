@@ -64,11 +64,11 @@ let price =  calculatePrice(dat.dataReducer)
 
   if(dat.choiseReducer.nome === 'DHL'){
     price+= 5
-    parameter[0] = price
+    parameter.push(price)
   }else{
                                  
      price += 15
-     parameter[0] = price
+     parameter.push(price)
   }
   
     
