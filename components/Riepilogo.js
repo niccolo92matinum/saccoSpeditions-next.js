@@ -22,12 +22,16 @@ function Riepilogo({ state, allInfo, setDataToStore,boolean}) {
     await response.json();
   };
 
+ 
+
   const sendToBackAllData = () => {
     // inserisco tutti i dati nello store
  
       const x = setDataToStore(allInfo);
       // faccio una POST
       sendAllParameter({ ...state, ...{ partenzaSpedizioneReducer: x.payload } });
+
+     
  
   };
 

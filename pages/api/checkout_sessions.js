@@ -4,9 +4,19 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 export const parameter = [];
 
-export default async function handler(req, res) {
 
-  const result = await parameter.slice(-1) * 100;
+function resolveAfter2Seconds() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve('resolved');
+    }, 1000);
+  });
+}
+
+export default async function handler(req, res) {
+  await resolveAfter2Seconds();
+
+  const final = await parameter.slice(-1) * 100;
  
 
   if (req.method === "POST") {
@@ -21,7 +31,7 @@ export default async function handler(req, res) {
               product_data: {
                 name: "Your spedition price",
               },
-              unit_amount: result,
+              unit_amount: final,
             },
             quantity: 1,
           },

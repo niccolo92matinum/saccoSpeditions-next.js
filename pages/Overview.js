@@ -77,7 +77,7 @@ function Overview({ state, setDataToStore }) {
       <form
         id="myform"
         onSubmit={() => sendToBackAllData()}
-        action="/api/checkout_sessions"
+         action="/api/checkout_sessions"
         method="POST"
       >
         <div className="overview-container">
