@@ -9,14 +9,14 @@ function resolveAfter2Seconds() {
   return new Promise(resolve => {
     setTimeout(() => {
       resolve('resolved');
-    }, 1000);
+    }, 500);
   });
 }
 
 export default async function handler(req, res) {
   await resolveAfter2Seconds();
 
-  const final = await parameter.slice(-1) * 100;
+  const final = await parameter[0] * 100;
  
 
   if (req.method === "POST") {
