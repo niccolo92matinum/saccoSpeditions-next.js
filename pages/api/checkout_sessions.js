@@ -4,7 +4,7 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 export const parameter = [];
 
-console.log(parameter)
+
 function resolveAfter2Seconds() {
   return new Promise(resolve => {
     setTimeout(() => {
@@ -17,7 +17,7 @@ export default async function handler(req, res) {
   await resolveAfter2Seconds();
 
   const final = await parameter[0] * 100;
-  console.log(parameter)
+  
 
   if (req.method === "POST") {
     try {
