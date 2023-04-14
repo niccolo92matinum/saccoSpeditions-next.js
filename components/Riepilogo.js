@@ -89,7 +89,7 @@ function Riepilogo({ state, allInfo, setDataToStore,boolean}) {
           </div>
         </div>
         <div className="container-button">
-      
+     
         <PreviewPage prova={sendToBackAllData} boolean={boolean} />
     
     </div>

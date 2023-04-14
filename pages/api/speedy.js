@@ -1,7 +1,6 @@
 
 import {parameter} from './checkout_sessions'
 
-
 export default function preventive(req, res) {
 
     if(req.method === 'GET'){
