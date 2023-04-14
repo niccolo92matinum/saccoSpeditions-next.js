@@ -1,3 +1,5 @@
+
+
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 export const parameter = [];
@@ -6,7 +8,7 @@ export default async function handler(req, res) {
 
   const result = await parameter.slice(-1) * 100;
  
-console.log(req,res)
+console.log(result)
   if (req.method === "POST") {
     try {
       // Create Checkout Sessions from body params.

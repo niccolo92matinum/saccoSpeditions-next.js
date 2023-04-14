@@ -58,19 +58,19 @@ export default function preventive(req, res) {
     return final;
   };
 
-let price =  calculatePrice(dat.dataReducer)
+const price =  calculatePrice(dat.dataReducer)
    
-
+let f
   if(dat.choiseReducer.nome === 'DHL'){
-    price+= 5
-    parameter.push(price)
+     f = price + 5
+    parameter.push(f)
   }else{
                                  
-     price += 15
-     parameter.push(price)
+     f = price + 15
+     parameter.push(f)
   }
   
-    
+    console.log(f, 'fff')
      
       res.status(201).json(parameter)
     
