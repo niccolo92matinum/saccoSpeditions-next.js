@@ -70,7 +70,7 @@ let f
      parameter[0] = f
   }
   
-   
+  console.log(parameter,'speedy')
      
       res.status(201).json(parameter)
     
