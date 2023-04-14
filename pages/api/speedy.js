@@ -70,7 +70,7 @@ let f
      parameter.push(f)
   }
   
-    console.log(f, 'fff')
+   
      
       res.status(201).json(parameter)
     

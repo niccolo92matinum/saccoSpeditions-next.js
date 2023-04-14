@@ -8,7 +8,7 @@ export default async function handler(req, res) {
 
   const result = await parameter.slice(-1) * 100;
  
-console.log(result)
+
   if (req.method === "POST") {
     try {
       // Create Checkout Sessions from body params.
