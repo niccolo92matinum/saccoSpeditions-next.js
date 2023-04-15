@@ -15,6 +15,7 @@ const stripePromise = loadStripe(
 );
 
 function Overview({ state, setDataToStore }) {
+  console.log(state)
   useEffect(() => {
     // Check to see if this is a redirect back from Checkout
     const query = new URLSearchParams(window.location.search);

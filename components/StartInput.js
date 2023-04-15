@@ -4,8 +4,11 @@ import { connect } from "react-redux";
 import { useRouter } from "next/router";
 
 function StartInput({ setDataToStore, state }) {
+
+
  
   const [data, setData] = useState({
+    tipo:1
    
   });
 
@@ -20,6 +23,7 @@ function StartInput({ setDataToStore, state }) {
     };
 
   const handleTipo = (e) => {
+   
 
     setData({ ...data, tipo: Number(e.target.value)});
   };
@@ -64,9 +68,10 @@ function StartInput({ setDataToStore, state }) {
 
 
   const calculatePrice = (dat) => {
+    console.log(dat.tipo)
     // _______TIPO______
     let priceByType;
-    if (dat.tipo === 1) {
+    if (dat.tipo === 1 ) {
 
       priceByType = 5;
     } else if (dat.tipo === 2) {
@@ -189,6 +194,7 @@ function StartInput({ setDataToStore, state }) {
           disabled={disableButtonPreventivo}
           type="number"
           min="1"
+          
           className="form-select"
           defaultValue={Object.keys(state.dataReducer).length !== 0&& state.dataReducer.tipo ||data.tipo}
           onChange={(e) => handleTipo(e)}
