@@ -1,10 +1,5 @@
 
-
 export default function Partenza({ name, state, handle }) {
-
-  
- 
-
 
   const pickUpDate = new Date();
   pickUpDate.setDate(pickUpDate.getDate() + 1);
@@ -19,10 +14,6 @@ export default function Partenza({ name, state, handle }) {
   };
 
  
-
-  
-  
-
   return (
     <div className="container-partenza ">
         <div className="child-container-partenza">
@@ -64,7 +55,7 @@ export default function Partenza({ name, state, handle }) {
                 name="name"
                 placeholder=""
                 className="form-control"
-                defaultValue=""
+                defaultValue={state.partenzaSpedizioneReducer.nameSender}
                 id="name"
                 required
                 onChange={(e) => {handle(e, "nameSender")}}
@@ -79,6 +70,7 @@ export default function Partenza({ name, state, handle }) {
                 placeholder=""
                 name="cognome"
                 className="form-control"
+                defaultValue={state.partenzaSpedizioneReducer.surnameSender}
                 required
                 id="cognome"
                 type="text"
@@ -96,7 +88,7 @@ export default function Partenza({ name, state, handle }) {
               <input
                 placeholder=""
                 className="form-control"
-                defaultValue=""
+                defaultValue={state.partenzaSpedizioneReducer.citySender}
                 maxLength="20"
                 required
                 id="citta"
@@ -112,7 +104,7 @@ export default function Partenza({ name, state, handle }) {
               <input
                 placeholder=""
                 className="form-control"
-                defaultValue=""
+                defaultValue={state.partenzaSpedizioneReducer.streetSender}
                id="via"
                maxLength="20"
                required
@@ -130,6 +122,7 @@ export default function Partenza({ name, state, handle }) {
               <input
                 required
                 type="tel" id="phone" name="phone"
+                defaultValue={state.partenzaSpedizioneReducer.phoneSender}
                 pattern="[0-9]{10}"
                 className="form-control"
                 onChange={(e) => {handle(e, "phoneSender")}}
@@ -144,6 +137,7 @@ export default function Partenza({ name, state, handle }) {
               <input
                 type="email"
                 name="firstName"
+                defaultValue={state.partenzaSpedizioneReducer.emailSender}
                 required
                 id="email"
                 className="form-control"

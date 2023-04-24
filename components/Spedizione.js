@@ -52,6 +52,7 @@ function Spedizione({ name, state, handle}) {
             <input
               maxLength="20"
               className="form-control"
+              defaultValue={state.partenzaSpedizioneReducer.nameDispatcher}
               type="text"
               name="name"
               onChange={(e) => handle(e, "nameDispatcher")}
@@ -66,7 +67,7 @@ function Spedizione({ name, state, handle}) {
             <input
               placeholder=""
               className="form-control"
-              defaultValue=""
+              defaultValue={state.partenzaSpedizioneReducer.surnameDispatcher}
               id="cognomeS"
               required
               type="text"
@@ -88,7 +89,7 @@ function Spedizione({ name, state, handle}) {
               id="cittaS"
               placeholder=""
               className="form-control"
-              defaultValue=""
+              defaultValue={state.partenzaSpedizioneReducer.cityDispatcher}
               maxLength="25"
               type="text"
               onChange={(e) => {
@@ -105,7 +106,7 @@ function Spedizione({ name, state, handle}) {
               id="viaS"
               placeholder=""
               className="form-control"
-              defaultValue=""
+              defaultValue={state.partenzaSpedizioneReducer.streetDispatcher}
               maxLength="25"
               required
               type="text"
@@ -125,7 +126,7 @@ function Spedizione({ name, state, handle}) {
             <input
               placeholder=""
               className="form-control"
-            
+              defaultValue={state.partenzaSpedizioneReducer.phoneDispatcher}
              
               required
               type="tel" id="phone" name="phone"
@@ -147,7 +148,7 @@ function Spedizione({ name, state, handle}) {
               className="form-control"
               id="emailS"
               aria-describedby="emailHelp"
-              defaultValue=""
+              defaultValue={state.partenzaSpedizioneReducer.emailDispatcher}
               required
               onChange={(e) => handle(e, "emailDispatcher")}
             />

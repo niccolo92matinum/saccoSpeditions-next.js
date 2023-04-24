@@ -1,16 +1,21 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { useRouter } from "next/router";
 
 function StartInput({ setDataToStore, state }) {
 
-
- 
   const [data, setData] = useState({
-    tipo:1
+  tipo:1
    
   });
+ 
+  useEffect(() => {
+    const items = JSON.parse(localStorage.getItem('items'));
+    if (items) {
+     setData(items.dataReducer);
+    }
+  }, []);
 
 
   
@@ -68,7 +73,7 @@ function StartInput({ setDataToStore, state }) {
 
 
   const calculatePrice = (dat) => {
-    console.log(dat.tipo)
+   
     // _______TIPO______
     let priceByType;
     if (dat.tipo === 1 ) {
@@ -196,7 +201,7 @@ function StartInput({ setDataToStore, state }) {
           min="1"
           
           className="form-select"
-          defaultValue={Object.keys(state.dataReducer).length !== 0&& state.dataReducer.tipo ||data.tipo}
+          value={Object.keys(state.dataReducer).length !== 0&& state.dataReducer.tipo ||data.tipo}
           onChange={(e) => handleTipo(e)}
         >
           

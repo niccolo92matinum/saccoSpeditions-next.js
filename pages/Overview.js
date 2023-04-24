@@ -1,7 +1,8 @@
 import { connect } from "react-redux";
 import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
+
 import { loadStripe } from "@stripe/stripe-js";
+
 import Partenza from "../components/Partenza";
 import Spedizione from "../components/Spedizione";
 import Riepilogo from "../components/Riepilogo";
@@ -14,62 +15,76 @@ const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
 );
 
-function Overview({ state, setDataToStore }) {
-  console.log(state)
+function Overview({ state, setDataToStore,setLocalStorageToStorepartenzaSpedizioneReducer,setLocalStorageToStoredataReducer}) {
+
   useEffect(() => {
-    // Check to see if this is a redirect back from Checkout
-    const query = new URLSearchParams(window.location.search);
-    if (query.get("success")) {
-      // console.log('Order placed! You will receive an email confirmation.');
+    if(Object.keys(state.dataReducer
+      ).length !== 0){
+      localStorage.setItem('items', JSON.stringify(state));
     }
+    
+  }, [state])
 
-    if (query.get("canceled")) {
-      // console.log('Order canceled -- continue to shop around and checkout when you’re ready.');
-    }
-  }, []);
+  useEffect(() => {
+  
+      const items = JSON.parse(localStorage.getItem('items'));
+      if (items) {
+        setLocalStorageToStorepartenzaSpedizioneReducer(items);
+        setLocalStorageToStoredataReducer(items)
+       
+      } 
 
+   
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+},[]);
+ 
   const [data, setData] = useState({});
 
   const handleObjDispatch = (e, key) => {
     setData({ ...data, ...{ [key]: e.target.value } });
   };
 
-  const sendAllParameter = async (store) => {
-    const response = await fetch("/api/speedy", {
-      method: "POST",
-      body: JSON.stringify(store),
-      headers: {
-        "Content-Type": "application/json",
-      },
+
+
+
+  const handleClick = async (e, store) => {
+    // Get Stripe.js instance
+    e.preventDefault()
+   
+    const stripe = await stripePromise;
+
+    // Call your backend to create the Checkout Session
+    const response = await fetch('/api/checkout_sessions', {
+      method: 'POST',
+       body:JSON.stringify(store),
+    });
+   
+    const session = await response.json();
+
+    // When the customer clicks on the button, redirect them to Checkout.
+    const result = await stripe.redirectToCheckout({
+      sessionId: session.id,
     });
 
-    await response.json();
+    if (result.error) {
+      // If `redirectToCheckout` fails due to a browser or network
+      // error, display the localized error message to your customer
+      // using `result.error.message`.
+    }
   };
 
-  const sendToBackAllData = () => {
+  const sendToBackAllData = async (e) => {
     // inserisco tutti i dati nello store
 
     const x = setDataToStore(data);
+    await x
     // faccio una POST
-    sendAllParameter({ ...state, ...{ partenzaSpedizioneReducer: x.payload } });
+    handleClick(e,state.choiseReducer);
   };
 
 
-  const router = useRouter();
-  const handleGoHomePage = () => {
-    router.push("/");
-  };
+ 
 
-  if (Object.keys(state.dataReducer).length === 0) {
-    return (
-      <>
-        <Nav />
-        <button  className=" button-start button-overview-homePage" onClick={()=>handleGoHomePage()}>
-          Vai nella Home Page
-        </button>
-      </>
-    );
-  }
 
   return (
     <>
@@ -77,9 +92,9 @@ function Overview({ state, setDataToStore }) {
 
       <form
         id="myform"
-        onSubmit={() => sendToBackAllData()}
-         action="/api/checkout_sessions"
-         method="POST"
+        onSubmit={(e)=>sendToBackAllData(e)}
+       
+       
       >
         <div className="overview-container">
           <Partenza name="Partenza" state={state} handle={handleObjDispatch} />
@@ -104,8 +119,24 @@ const setDataToStore = (data) => ({
   payload: data,
 });
 
+const setLocalStorageToStorepartenzaSpedizioneReducer = (data) => ({
+  type:"SAVE_LOCAL_STORAGE_TO_STORE",
+  payload:data,
+})
+
+const setLocalStorageToStoredataReducer = (data) => ({
+  type:"SAVE_LOCAL_STORAGE_TO_STORE",
+  payload:data,
+})
+
+
+
 const mapDispatchToProps = {
   setDataToStore,
+  setLocalStorageToStorepartenzaSpedizioneReducer,
+  setLocalStorageToStoredataReducer,
+
+
 };
 //
 const mapStateToProps = (state) => ({

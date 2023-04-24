@@ -1,3 +1,5 @@
+
+import {  useEffect, useState } from "react";
 import { connect } from "react-redux";
 import Nav from "../components/Nav";
 
@@ -8,6 +10,20 @@ import PlatformCard from "../components/PlatformCard";
 import StartInput from "../components/StartInput";
 
 function AllPlatforms({ state }) {
+
+
+ 
+
+  const [data, setData] = useState({})
+ 
+  useEffect(() => {
+    const items = JSON.parse(localStorage.getItem('items'));
+    if (items) {
+     setData(items);
+    }
+  }, []);
+
+
   const arrCompany = [
     {
       id: 0,
@@ -28,7 +44,18 @@ function AllPlatforms({ state }) {
   ];
 
   const createObjCompany = arrCompany.map((x, i) => {
-    const final = { ...state.dataReducer, ...arrCompany[i] };
+
+    let final
+    if(Object.keys(state.dataReducer).length === 0){
+      
+      final = { ...data.dataReducer, ...arrCompany[i] };
+
+    }else{
+      final = { ...state.dataReducer, ...arrCompany[i] };
+    }
+   
+
+    
 
     const timeToAdd = x.tempoSpedizione;
     const today = new Date();

@@ -7,6 +7,9 @@ function dataReducer(state = initialState, action) {
     case "STORE_DATA":
     
      return {...state,...action.payload}
+     case "SAVE_LOCAL_STORAGE_TO_STORE":
+       
+       return  {...state,...action.payload.dataReducer}
     
     default:
       return state;

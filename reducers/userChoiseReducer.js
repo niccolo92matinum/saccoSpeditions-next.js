@@ -8,7 +8,9 @@ function choiseReducer(state = initialState, action) {
 
        return {...state,...action.payload}
       
-      
+       case "SAVE_LOCAL_STORAGE_TO_STORE":
+       
+       return  {...state,...action.payload.choiseReducer}
       default:
         return state;
     }

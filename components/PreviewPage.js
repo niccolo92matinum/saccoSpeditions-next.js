@@ -8,15 +8,11 @@ import {connect} from 'react-redux'
 function PreviewPage() {
 
 
-
-
-
-
   return (
-   // <form  action="/api/checkout_sessions" method="POST">
+ 
   
       <div>
-        <button form="myform"  type="submit"  role="link" >
+        <button form="myform"  type="submit"  role="link"  >
         PAGA
         </button>
         
@@ -76,7 +72,6 @@ function PreviewPage() {
         `}
       </style>
       </div>
-   // </form>
   );
 }
 

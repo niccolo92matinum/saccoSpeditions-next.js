@@ -6,6 +6,7 @@ const getStoreToBeSaved = (store, doNotSave = []) => {
         storeToBeSaved[key] = undefined;
       }
     }
+  
     return storeToBeSaved;
   };
   

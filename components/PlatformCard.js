@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
 import { useRouter } from "next/router";
 
-function PlatformCard({ Info, saveUserChoise }) {
-  // chiedi a sergio perche bisogna inserire la funzione come argomento
+function PlatformCard({ Info, saveUserChoise}) {
+
 
   const router = useRouter();
   const handleGoToOverview = () => {
@@ -12,6 +12,7 @@ function PlatformCard({ Info, saveUserChoise }) {
   const choise = () =>{
     saveUserChoise(Info)
     handleGoToOverview()
+    
   }
 
   return (
